@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import './Header.css'
 
 class Header extends Component {
@@ -7,27 +8,27 @@ class Header extends Component {
             <div className='ContainerHeader'>
                 <div id="contenedordetituloeimagen">
                 <img id="logo" src="./images/logo.png" alt="Logo" />
-                <h1 id="titulo">Lumíere Rouge</h1>
+                <h1 id="titulo">Lumière Rouge</h1>
                 </div>
                 <nav>
                     <ul className="Nav-ul">
                         <li className="nav-item">
-                            <a id="home" className="nav-link" href="index.html">Home</a>
+                            <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="movies.html">Películas</a>
+                            <Link className="nav-link" to="/movies">Películas</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="series.html">Series</a>
+                            <Link className="nav-link" to="/series">Series</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="favorites.html">Favoritas</a>
+                            <Link className="nav-link" to="/favorites">Favoritas</Link>
                         </li>
                         <li className="nav-item ml-auto">
-                            <a className="nav-link" href="register.html">Registro</a>
+                            <Link className="nav-link" to="/register">Registro</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="login.html">Login</a>
+                            <Link className="nav-link" to="/login">Login</Link>
                         </li>
                     </ul>
                 </nav>
