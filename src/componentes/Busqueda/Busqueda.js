@@ -10,7 +10,7 @@ class Busqueda extends Component {
 
   evitarSubmit(event) {
     event.preventDefault();
-    this.props.history.push("./SearchResults")
+    this.props.history.push("./SearchResults" + this.state)
   }
 
   controlarCambios(event) {
