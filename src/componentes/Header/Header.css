@@ -1,0 +1,55 @@
+#titulo {
+    font-family: "Petit Formal Script";
+    font-weight: bold;
+    font-style: normal;
+    color: #DCA23E;
+    padding: 0 0 0 20px;
+}
+
+.ContainerHeader {
+    background-color: #460000;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#contenedordetituloeimagen{
+    display: flex;
+}
+
+nav {
+    background-color: #460000;
+    display: flex;
+}
+
+.Nav-ul {
+    display: flex;
+    background-color: #460000;
+    justify-content: end;
+    list-style: none;
+}
+
+.nav-item {
+    text-decoration: none;
+    margin-top: 18px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #B8956B;
+    padding: 0 15px 0px 15px;
+    font-family: 'Raleway', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 15px 0 0;
+}
+#logo{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 22px;
+}
+#home{
+    color: #DCA23E;
+}
