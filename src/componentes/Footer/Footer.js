@@ -7,9 +7,9 @@ function Footer() {
         <img id="logo" src="./images/logo.png" alt="Logo" />
         <p className="copy">Copyright ® Dashboard 2022</p>
         <div className="nombres">
-        <p>RAFAEL CENTANIN</p>
-        <p>ABRIL FARI</p>
-        <p>BENJAMIN TORRES</p>
+        <p>Rafael Centanin</p>
+        <p>Abril Fari</p>
+        <p>Benjamin Torres</p>
         </div>
     </footer>
     )
