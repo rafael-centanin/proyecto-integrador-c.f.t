@@ -7,7 +7,7 @@
 }
 .nombresFoot img{
     position: absolute;
-    top: 1px;
+    top: 0px;
     left: 20px;
     width: 60px;
 }
@@ -22,7 +22,7 @@
     color: #DCA23E; ;
 }
 .copy{
-    margin-top: 31px;
+    margin-top: 30px;
     color: rgb(57, 56, 56);
     font-weight: bold;
     font: optional;
