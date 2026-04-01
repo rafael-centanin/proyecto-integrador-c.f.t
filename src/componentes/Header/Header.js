@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <div className='ContainerHeader'>
                 <div id="contenedordetituloeimagen">
-                <img id="logo" src="./images/logo.png" alt="Logo" />
+                <img id="logo" src="/images/logo.png" alt="Logo" />
                 <h1 id="titulo">Lumière Rouge</h1>
                 </div>
                 <nav>

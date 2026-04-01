@@ -40,9 +40,10 @@ class Home extends Component {
                 <Busqueda/>
                 <h2>Más Populares</h2>
                 {this.state.masPopulares.length=== 0? <p>Cargando...</p> :<MasPopulares peliculas= {this.state.masPopulares.slice(0,8)}/>}
+                <button>Ver todas</button>
                 <h2>Películas en Cartel</h2>
                 {this.state.enCartel.length ===0? <p>Cargando...</p>: <PelisCartel peliculas ={this.state.enCartel.slice(0,8)}/>}
-
+                <button>Ver todas</button>
             </main>
     );
 }
