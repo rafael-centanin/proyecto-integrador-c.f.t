@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './SearchResults.css'
 class SearchResult extends Component {
     constructor(props) {
         super(props);
@@ -21,8 +22,7 @@ class SearchResult extends Component {
 
     render() {
         return (
-            <section>
-
+            <section className="sectionSearchResults">
                 {this.state.resultados.length ===0?(<p>No hay resultados</p>): (this.state.resultados.map(pelicula =>
                     <article className="peliculaMasPopular" key={pelicula.id}>
                         <img
@@ -33,14 +33,8 @@ class SearchResult extends Component {
                         <p>{pelicula.overview}</p>
                         <button> Ver Descripcion</button>
                         <button> Ir a detalle</button>
-
-
                     </article>))}
-
             </section>
-
-
-
         )
     };
 }

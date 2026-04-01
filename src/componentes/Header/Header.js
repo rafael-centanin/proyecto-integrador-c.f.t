@@ -7,8 +7,8 @@ class Header extends Component {
         return (
             <div className='ContainerHeader'>
                 <div id="contenedordetituloeimagen">
-                <img id="logo" src="/images/logo.png" alt="Logo" />
-                <h1 id="titulo">Lumière Rouge</h1>
+                <Link id="logo" to="/"> <img id="logo" src="/images/logo.png" alt="Logo" /></Link>
+                <h1 id="titulo"><Link id="titulo"to="/">Lumíere Rouge</Link></h1>
                 </div>
                 <nav>
                     <ul className="Nav-ul">
@@ -25,7 +25,9 @@ class Header extends Component {
                             <Link className="nav-link" to="/favorites">Favoritas</Link>
                         </li>
                         <li className="nav-item ml-auto">
-                            <Link className="nav-link" to="/register">Registro</Link>
+                            <Link className="nav-link" to="/register">Register
+
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login</Link>

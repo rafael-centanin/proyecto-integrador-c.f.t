@@ -85,7 +85,9 @@ nav {
 .all-movies .single-card-movie {
     width: 15%;
 }
-
+body{
+    margin: 0
+}
 @media(min-width: 765px){
     nav {
         grid-template-columns: 1fr;

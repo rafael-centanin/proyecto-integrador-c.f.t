@@ -1,0 +1,4 @@
+.sectionSearchResults{
+    display: flex;
+    flex-wrap: wrap;
+}

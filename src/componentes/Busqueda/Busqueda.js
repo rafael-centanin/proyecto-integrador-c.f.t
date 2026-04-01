@@ -1,10 +1,10 @@
 import "../Busqueda/Busqueda.css"
 import { Component } from "react";
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom"
 class Busqueda extends Component {
   constructor(props) {
     super(props);
-    this.state = {valor: ''};
+    this.state = { valor: '' };
   }
 
   evitarSubmit(event) {
@@ -13,16 +13,16 @@ class Busqueda extends Component {
   }
 
   controlarCambios(event) {
-    this.setState({valor: event.target.value});
+    this.setState({ valor: event.target.value });
   }
 
   render() {
     return (
-     <form className="barra_busqueda" onSubmit={(event)=>this.evitarSubmit(event)}>
-       <label>Buscar</label>
-       <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} className="busqueda"/>
-       <button type="submit">Buscar</button>
-     </form>
+      <form className="barra_busqueda" onSubmit={(event) => this.evitarSubmit(event)}>
+        <label>Buscar</label>
+        <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} className="busqueda" />
+        <button type="submit">Buscar</button>
+      </form>
     );
   }
 }
