@@ -24,12 +24,12 @@ class SearchResult extends Component {
         return (
             <section className="sectionSearchResults">
                 {this.state.resultados.length ===0?(<p>No hay resultados</p>): (this.state.resultados.map(pelicula =>
-                    <article className="peliculaMasPopular" key={pelicula.id}>
+                    <article className="peliculaEnCartel" key={pelicula.id}>
                         <img
                             src={`https://image.tmdb.org/t/p/w342${pelicula.poster_path}`}
                             alt={pelicula.title}
                         />
-                        <p>{pelicula.title}</p>
+                        <h2 className="titulopelicula">{pelicula.title}</h2>
                         <p>{pelicula.overview}</p>
                         <button> Ver Descripcion</button>
                         <button> Ir a detalle</button>

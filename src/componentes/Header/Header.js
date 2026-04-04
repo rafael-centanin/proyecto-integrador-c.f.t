@@ -8,7 +8,7 @@ class Header extends Component {
             <div className='ContainerHeader'>
                 <div id="contenedordetituloeimagen">
                 <Link id="logo" to="/"> <img id="logo" src="/images/logo.png" alt="Logo" /></Link>
-                <h1 id="titulo"><Link id="titulo"to="/">Lumíere Rouge</Link></h1>
+                <h1 className="titulos"><Link id="titulo"to="/">Lumíere Rouge</Link></h1>
                 </div>
                 <nav>
                     <ul className="Nav-ul">

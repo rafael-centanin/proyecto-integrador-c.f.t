@@ -19,8 +19,7 @@ class Busqueda extends Component {
   render() {
     return (
       <form className="barra_busqueda" onSubmit={(event) => this.evitarSubmit(event)}>
-        <label>Buscar</label>
-        <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} className="busqueda" />
+        <input placeholder="Encuentra tu nueva serie o pelicula favorita" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} className="busqueda" />
         <button type="submit">Buscar</button>
       </form>
     );

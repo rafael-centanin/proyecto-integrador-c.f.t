@@ -31,11 +31,11 @@ class MasPopulares extends Component{
         <div className="divEnCartel">
             {this.props.peliculas.map((pelicula) =>(
             <article className="peliculaEnCartel">
-            <img
+            <img className="imagenpelicula"
                 src={`https://image.tmdb.org/t/p/w342/${pelicula.poster_path}.jpg`}
                     alt={pelicula.title}
                     />
-            <h2 > <Link to= "">{pelicula.title} </Link></h2>
+            <Link to= ""><h2 className="titulopelicula" >{pelicula.title} </h2></Link>
 
             {this.state.show === true ? <p>{pelicula.overview}</p>  : null }
             {this.state.show=== true ?  <button className='more' onClick={()=> this.hide()}>Ver Menos</button>: 
