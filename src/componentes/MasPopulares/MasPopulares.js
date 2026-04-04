@@ -42,8 +42,8 @@ class MasPopulares extends Component{
             <button className='more' onClick={()=> this.show()}> Ver Descripcion</button>}
 
             
-		    <button className='delete'onClick={() => ""()}>Ir a detalle</button>
-            <button className='fav'onClick={() => this.props.favoritos()}>Ad favoritos</button> 
+		    <button className='delete'onClick={() => ""()}>Detalle</button>
+            <button className='fav'onClick={() => this.props.favoritos()}>Favoritos</button> 
         </article>
         ))}
         </div>

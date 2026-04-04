@@ -3,7 +3,7 @@
     font-weight: bold;
     font-style: normal;
     color: #DCA23E;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 15px;
     text-decoration: none;
 }
 
@@ -36,9 +36,9 @@ nav {
 
 .nav-link {
     text-decoration: none;
-    color: #B8956B;
+    color: #EAAA52;
     padding: 0 15px 0px 15px;
-    font-family: 'Raleway', 'Segoe UI', sans-serif;
+    font-family: 'Playfair Display', serif;
     text-transform: uppercase;
     font-weight: bold;
     margin: 0 15px 0 0;

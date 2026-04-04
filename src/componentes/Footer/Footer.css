@@ -6,14 +6,14 @@
     background-color: #460000;
 }
 .nombresFoot img{
-    position: absolute;
+    justify-self:left;
     top: 0px;
     left: 20px;
     width: 70px;
 }
 .nombres{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     width: 100%;
     font-family: "Roboto", sans-serif;
@@ -21,12 +21,10 @@
     font-style: normal;
     color: #DCA23E; ;
 }
-.copy{
-    margin-top: 30px;
-    color: rgb(57, 56, 56);
-    font-weight: bold;
-    font: optional;
-    font-size: 120%;
+#copy{
+    font-size: large;
+    font-family: 'Playfair Display', serif;
+    color:antiquewhite
 }
 footer{
     background-color: #460000;
