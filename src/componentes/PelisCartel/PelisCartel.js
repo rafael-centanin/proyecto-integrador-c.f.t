@@ -4,47 +4,49 @@ import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
 
-class PelisCartel extends Component{
-    constructor(props){
+class PelisCartel extends Component {
+    constructor(props) {
         super(props)
         this.state = {
-            show : false,
-            hide : true
+            show: false,
+            hide: true
 
         }
     }
 
     show() {
         this.setState({
-            show : this.state.show=true
+            show:  true
         })
     }
 
     hide() {
         this.setState({
-            show: this.state.show=false,
+            show:  false,
         })
     }
 
-    render(){
+    render() {
         return (
 
-        <div className="divEnCartel">
-            {this.props.peliculas.map((pelicula) =>(
-            <article className="peliculaEnCartel">
-            <img className="imagenpelicula"src={`https://image.tmdb.org/t/p/w342/${pelicula.poster_path}.jpg`} alt={pelicula.title} />
-            <Link to= ""><h2 className="titulopelicula" > {pelicula.title} </h2> </Link>
+            <div className="divEnCartel">
+                {this.props.peliculas.map((pelicula) => (
+                    <article className="peliculaEnCartel">
+                        <img className="imagenpelicula" src={`https://image.tmdb.org/t/p/w342/${pelicula.poster_path}.jpg`} alt={pelicula.title} />
+                        <Link to=""><h2 className="titulopelicula" > {pelicula.title} </h2> </Link>
 
-            {this.state.show === true ? <p>{pelicula.overview}</p>  : null }
-            {this.state.show=== true ?  <button className='more' onClick={()=> this.hide()}>Ver Menos</button>: 
-            <button className='more' onClick={()=> this.show()}>Descripcion</button>}
+                        {this.state.show === true ? <p>{pelicula.overview}</p> : null}
+                        {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
+                            <button className='more' onClick={() => this.show()}>Ver Descripcion</button>}
 
-            
-		    <button className='delete'onClick={() => ""()}>Ir a detalle</button>
-            <button className='fav'onClick={() => this.props.favoritos()}>Favoritos</button> 
-        </article>
-        ))}
-        </div>
+
+                        <Link to={`/Detalle/${pelicula.id}`} className='botonDetalle'>
+                            Detalle
+                        </Link>
+                        <button className='fav' onClick={() => this.props.favoritos()}>Favoritos</button>
+                    </article>
+                ))}
+            </div>
         )
     }
 }
