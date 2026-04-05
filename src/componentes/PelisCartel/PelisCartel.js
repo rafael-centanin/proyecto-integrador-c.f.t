@@ -25,6 +25,9 @@ class PelisCartel extends Component {
             show:  false,
         })
     }
+    favoritos(){
+        
+    }
 
     render() {
         return (

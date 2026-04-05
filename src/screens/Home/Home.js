@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Busqueda from "../../componentes/Busqueda/Busqueda";
 import MasPopulares from "../../componentes/MasPopulares/MasPopulares";
 import PelisCartel from "../../componentes/PelisCartel/PelisCartel";
