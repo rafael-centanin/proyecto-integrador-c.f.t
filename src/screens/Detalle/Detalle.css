@@ -1,0 +1,48 @@
+#divgeneralDetalle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #460000;
+}
+
+#articleDetalle {
+    align-items: center;
+    display: flex;
+    width: 75%;
+    margin: 40px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+#imagenDetalle {
+    width: 22vw;
+    height: AUTO;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin: 15px
+}
+
+#tituloDetalle {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+#informacionDetalle {
+    display: flex;
+    justify-content: space-between;
+}
+.informacionDetalle{
+    font-family: "Roboto", sans-serif;
+}
+.datoDetalle {
+    padding: 10px;
+    background-color: #DCA23E;
+    border-radius: 22px;
+    font-family: "Roboto", sans-serif;
+    width: fit-content;
+}
+.mapeoDetalle{
+    display: flex;
+}
+#pMapeadaDetalle{
+    margin-right: 20px;
+}
