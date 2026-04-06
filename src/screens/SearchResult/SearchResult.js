@@ -50,10 +50,10 @@ class SearchResult extends Component {
                         {this.state.show === true ? <p>{pelicula.overview}</p> : null}
                         {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
                             <button className='more' onClick={() => this.show()}>Ver Descripcion</button>}
-                        <Link to={`/Detalle/${pelicula.id}`} className='botonDetalle'>
+                        <Link to={`/Detalle/tv/${pelicula.id}`} className='botonDetalle'>
                             Detalle
                         </Link>
-
+{/* COMENTARIO: ACA HAY QUE ARREGLAR EL TEMA DE SI ES SERIE O PELI PORQUE SE EMPIEZA A ROMPER */}
                     </article>))}
             </section>
         )

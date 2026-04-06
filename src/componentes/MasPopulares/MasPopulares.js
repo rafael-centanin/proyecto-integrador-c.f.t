@@ -41,7 +41,7 @@ class MasPopulares extends Component {
                         {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
                             <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
 
-                        <Link to={`/Detalle/${pelicula.id}`} className='botonDetalle'>
+                        <Link to={`/Detalle/movie/${pelicula.id}`} className='botonDetalle'>
                             Detalle
                         </Link>
 

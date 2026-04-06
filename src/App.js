@@ -10,6 +10,7 @@ import Detalle from "./screens/Detalle/Detalle";
 import Movies from "./componentes/Movies/Movies";
 import Series from "./componentes/Series/Series";
 import Favoritos from './screens/Favoritos/Favoritos';
+import DetalleSeries from './screens/DetalleSeries/DetalleSeries';
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
         <Route path="/series" component={Series} />
         <Route path="/favoritos" component={Favoritos} />
         <Route path="/SearchResults/:select/:valor" component={SearchResult} />
-        <Route path="/Detalle/:id" component={Detalle} />
+        <Route path="/Detalle/movie/:id" component={Detalle} />
+        <Route path="/Detalle/tv/:id" component={DetalleSeries} />
         <Route path="" component={NotFound} />
-
       </Switch>
       <Footer />
     </div>

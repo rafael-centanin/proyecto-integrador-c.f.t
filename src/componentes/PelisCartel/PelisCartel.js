@@ -43,7 +43,7 @@ class PelisCartel extends Component {
                             <button className='more' onClick={() => this.show()}>Ver Descripcion</button>}
 
 
-                        <Link to={`/Detalle/${pelicula.id}`} className='botonDetalle'>
+                        <Link to={`/Detalle/movie/${pelicula.id}`} className='botonDetalle'>
                             Detalle
                         </Link>
                         <button className='fav' onClick={() => this.props.favoritos()}>Favoritos</button>

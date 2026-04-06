@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import './Detalle.css'
+import './DetalleSeries.css'
 
-class Detalle extends Component {
+class DetalleSeries extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            pelicula: '',
+            serie: '',
             cargar: true
         }
     }
     componentDidMount() {
         let id = this.props.match.params.id
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=0185f70c5f71076c61606afd4f75803b`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=0185f70c5f71076c61606afd4f75803b`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -37,11 +37,10 @@ class Detalle extends Component {
                         <img id="imagenDetalle" className="imagenpelicula" src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}.jpg`} alt={this.state.pelicula.title} />
                     </div>
                     <div>
-                        <h2 id="tituloDetalle" className="titulopelicula" > {this.state.pelicula.title} </h2>
-                        <div className="informacionDetalle">
-                        <p className="datoDetalle"><strong>Rating:</strong> {this.state.pelicula.vote_average}/10</p>
-                        <p className="datoDetalle"><strong>Fecha de estreno: </strong> {this.state.pelicula.release_date}</p>
-                        <p className="datoDetalle"><strong>Duracion:</strong> {this.state.pelicula.runtime} minutos</p>
+                        <h2 id="tituloDetalle" className="titulopelicula" > {this.state.pelicula.name} </h2>
+                        <div id="informacionDetalleSeries"className="informacionDetalle">
+                        <p id="datoDetalleserie" className="datoDetalle"><strong>Rating:</strong> {this.state.pelicula.vote_average}/10</p>
+                        <p  id="datoDetalleserie" className="datoDetalle"><strong>Fecha de estreno: </strong> {this.state.pelicula.first_air_date}</p>
                         </div>
                         <p className="informacionDetalle">{this.state.pelicula.overview}</p>
                         <div className="mapeoDetalle">
@@ -59,4 +58,4 @@ class Detalle extends Component {
 
 
 
-export default Detalle;
+export default DetalleSeries;
