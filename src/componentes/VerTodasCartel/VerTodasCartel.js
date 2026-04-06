@@ -1,11 +1,10 @@
 import { Component } from "react";
 import Busqueda from "../../componentes/Busqueda/Busqueda";
-import MasPopulares from "../../componentes/MasPopulares/MasPopulares";
-import PelisCartel from "../../componentes/PelisCartel/PelisCartel";
-import { Link } from "react-router-dom";
-import "./Home.css";
 
-class Home extends Component {
+import PelisCartel from "../../componentes/PelisCartel/PelisCartel";
+
+
+class VerTodasCartel extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,16 +40,13 @@ class Home extends Component {
         return (
             <main className="mainHome">
                 <Busqueda />
-                <h2 id="h2Main"className="nav-link">Más Populares</h2>
-                {this.state.masPopulares.length === 0 ? <p>Cargando...</p> : <MasPopulares peliculas={this.state.masPopulares.slice(0, 8)} />}
-                <button> <Link to= "/VerTodasPopulares">Ver Todas</Link> </button>
-
+                
                 <h2 id="h2Main"className="nav-link" >Películas en Cartel</h2>
-                {this.state.enCartel.length === 0 ? <p>Cargando...</p> : <PelisCartel peliculas={this.state.enCartel.slice(0, 8)} />}
-                <button className="BotonVerTodas"> <Link id="BotonVerTodas" to= "/VerTodasCartel">Ver Todas</Link> </button>
+                {this.state.enCartel.length === 0 ? <p>Cargando...</p> : <PelisCartel peliculas={this.state.enCartel} />}
+                
             </main>
         );
     }
 }
 
-export default Home;
+export default VerTodasCartel;
