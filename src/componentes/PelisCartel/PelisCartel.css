@@ -10,6 +10,8 @@
 .divEnCartel{
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
 }
 .titulopelicula{
     color:#460000;

@@ -43,7 +43,7 @@ class Home extends Component {
                 <Busqueda />
                 <h2 id="h2Main"className="nav-link">Más Populares</h2>
                 {this.state.masPopulares.length === 0 ? <p>Cargando...</p> : <MasPopulares peliculas={this.state.masPopulares.slice(0, 8)} />}
-                <button> <Link to= "/VerTodasPopulares">Ver Todas</Link> </button>
+                <button> <Link id="BotonVerTodas" to= "/VerTodasPopulares">Ver Todas</Link> </button>
 
                 <h2 id="h2Main"className="nav-link" >Películas en Cartel</h2>
                 {this.state.enCartel.length === 0 ? <p>Cargando...</p> : <PelisCartel peliculas={this.state.enCartel.slice(0, 8)} />}

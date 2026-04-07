@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import "./MasPopulares.css"
+import CardPeli from "../CardPeli/CardPeli";
 
 
 class MasPopulares extends Component {
@@ -8,50 +9,39 @@ class MasPopulares extends Component {
         super(props)
         this.state = {
             show: false,
-            hide: true
+            hide: true,
+            masPopulares: [],
+            enCartel: []
 
         }
     }
-
-    show() {
-        this.setState({
-            show: true,
-        })
-    }
-
-    hide() {
-        this.setState({
-            show: false,
-        })
+    componentDidMount() {
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=0185f70c5f71076c61606afd4f75803b")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    masPopulares: data.results
+                })
+            })
+            .catch(error => console.log(error));
     }
 
     render() {
         return (
 
             <div className="divEnCartel">
-                {this.props.peliculas.map((pelicula) => (
-                    <article className="peliculaEnCartel">
-                        <img className="imagenpelicula"
-                            src={`https://image.tmdb.org/t/p/w342/${pelicula.poster_path}.jpg`}
-                            alt={pelicula.title}
-                        />
-                        <Link to=""><h2 className="titulopelicula" >{pelicula.title} </h2></Link>
 
-                        {this.state.show === true ? <p>{pelicula.overview}</p> : null}
-                        {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
-                            <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
-
-                        <Link to={`/Detalle/movie/${pelicula.id}`} className='botonDetalle'>
-                            Detalle
-                        </Link>
-
-                        <button className='fav' onClick={() => this.props.favoritos()}>Favoritos</button>
-                    </article>
+                {this.props.peliculas.map((pelicula, idx) => (
+                    <CardPeli key={idx + 1}
+                    img = {pelicula.poster_path} 
+                    title = {pelicula.title}
+                    id = {pelicula.id}
+                    overview= {pelicula.overview}/>
                 ))}
             </div>
         )
-    }
-}
+    }}
+
 
 
 export default MasPopulares;
