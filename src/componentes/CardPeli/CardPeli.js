@@ -26,7 +26,6 @@ class CardPeli extends Component{
     render() {
         return (
 
-            <div className="divEnCartel">
                 
                     <article  className="peliculaEnCartel">
                         <img className="imagenpelicula"
@@ -34,19 +33,14 @@ class CardPeli extends Component{
                             alt={this.props.title}
                         />
                         <Link to=""><h2 className="titulopelicula" >{this.props.title} </h2></Link>
-
                         {this.state.show === true ? <p>{this.props.overview}</p> : null}
                         {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
                             <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
-
                         <Link to={`/Detalle/movie/${this.props.id}`} className='botonDetalle'>
                             Detalle
                         </Link>
-
                         <button className='fav' onClick={() => this.props.favoritos()}>Favoritos</button>
                     </article>
-
-            </div>
         )
     }
 }
