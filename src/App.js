@@ -13,7 +13,7 @@ import Favoritos from './screens/Favoritos/Favoritos';
 import DetalleSeries from './screens/DetalleSeries/DetalleSeries';
 import VerTodasCartel from './componentes/VerTodasCartel/VerTodasCartel';
 import VerTodasPopulares from './componentes/VerTodasPopulares/VerTodasPopulares';
-
+import CardSeries from './componentes/CardSeries/CardSeries';
 function App() {
   return (
     <div>
@@ -29,6 +29,7 @@ function App() {
         <Route path="/Detalle/tv/:id" component={DetalleSeries} />
         <Route path="/VerTodasCartel" component={VerTodasCartel} />
         <Route path="/VerTodasPopulares" component={VerTodasPopulares} />
+        <Route path="/CardSeries" component={CardSeries}/>
         <Route path="" component={NotFound} />
       </Switch>
       <Footer />

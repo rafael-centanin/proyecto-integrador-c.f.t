@@ -1,41 +1,47 @@
 import React, { Component } from "react";
-
+import CardPeli from "../CardPeli/CardPeli";
 class Movies extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            show: false,
-            hide: true
-
+            dataPeliculas: []
         }
     }
+    componentDidMount() {
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=0185f70c5f71076c61606afd4f75803b")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    dataPeliculas: data.results
+                })
 
-    show() {
-        this.setState({
-            show: true,
-        })
+            })
+            .catch(error => console.log(error));
     }
 
-    hide() {
-        this.setState({
-            show: false,
-        })
-    }
 
     render() {
+        console.log(this.state.dataPeliculas);
         return (
+            <div>
 
-            <div className="divEnCartel">
-                    <article className="peliculaEnCartel">
-                        {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
-                            <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
+                 {this.state.dataPeliculas.length===0 ? <p>Cargando...</p>: 
+                    
+                    
+                    <div className="divEnCartel">
+                    
+                        {this.state.dataPeliculas.map((pelicula, idx) => (
+                            <CardPeli key={idx + 1}
+                            img={pelicula.poster_path}
+                            title={pelicula.title}
+                            id={pelicula.id}
+                            overview={pelicula.overview} />
+                        ))}
 
-                        <button className='fav' onClick={() => this.props.favoritos()}>Favoritos</button>
-                    </article>
-            </div>
-        )
-    }
-}
+                    </div>
+                  }   
+                  </div>
+        )}}
 
 
 export default Movies;
