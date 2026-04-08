@@ -5,6 +5,7 @@ class Series extends Component {
         super(props)
         this.state = {
             dataSeries: []
+
         }
     }
     componentDidMount() {
@@ -18,6 +19,25 @@ class Series extends Component {
             })
             .catch(error => console.log(error));
     }
+
+    //Asi es la logistica de cargar mas, hay que poner pagina + 1
+    // cargarMas(){
+
+    //     fetch(this.state.otraPag)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             console.log('revisando mas', data)
+
+    //             this.setState({
+    //                 datos: this.state.datos.concat(data.results),
+    //                 datosCopia:this.state.datos.concat(data.results),
+    //                 otraPag: data.info.next
+
+    //             })
+    //         }
+    //         )
+    //         .catch(error => console.log('El error fue: ' + error))
+    // }
 
 
     render() {
@@ -36,7 +56,9 @@ class Series extends Component {
                             title={pelicula.name}
                             id={pelicula.id}
                             overview={pelicula.overview} />
+                            
                         ))}
+                        <button>Cargar mas</button>
 
                     </div>
                   }   
