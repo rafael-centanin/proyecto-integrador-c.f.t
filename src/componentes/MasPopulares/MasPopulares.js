@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import "./MasPopulares.css"
 import CardPeli from "../CardPeli/CardPeli";

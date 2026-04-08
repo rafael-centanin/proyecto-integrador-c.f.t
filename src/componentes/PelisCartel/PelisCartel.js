@@ -1,6 +1,5 @@
 
 import "./PelisCartel.css"
-import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import CardPeli from "../CardPeli/CardPeli";
 
