@@ -4,41 +4,82 @@ class Series extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            dataSeries: []
+            dataSeries: [],
+            datos: [],
+            datosCopia: [],
+            page: 1,
+            valor:""
 
         }
     }
     componentDidMount() {
-        fetch("https://api.themoviedb.org/3/trending/tv/day?api_key=0185f70c5f71076c61606afd4f75803b")
+        fetch("https://api.themoviedb.org/3/trending/tv/day?api_key=0185f70c5f71076c61606afd4f75803b&page=1")
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    dataSeries: data.results
+                    dataSeries: data.results,
+                    
                 })
 
             })
             .catch(error => console.log(error));
     }
 
-    //Asi es la logistica de cargar mas, hay que poner pagina + 1
-    // cargarMas(){
+    // Asi es la logistica de cargar mas, hay que poner pagina + 1
+    cargarMas(){
+        let otraPag = this.state.page + 1
+        fetch(`https://api.themoviedb.org/3/trending/tv/day?api_key=0185f70c5f71076c61606afd4f75803b&page=${otraPag}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('revisando mas', data)
 
-    //     fetch(this.state.otraPag)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log('revisando mas', data)
+                this.setState({
+                    dataSeries: this.state.dataSeries.concat(data.results),
 
-    //             this.setState({
-    //                 datos: this.state.datos.concat(data.results),
-    //                 datosCopia:this.state.datos.concat(data.results),
-    //                 otraPag: data.info.next
+                    page: otraPag 
 
-    //             })
-    //         }
-    //         )
-    //         .catch(error => console.log('El error fue: ' + error))
-    // }
+                })
+            }
+            )
+            .catch(error => console.log('El error fue: ' + error))
+    }
+        cargarMas(){
+        let otraPag = this.state.page + 1
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=0185f70c5f71076c61606afd4f75803b&page=${otraPag}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('revisando mas', data)
 
+                this.setState({
+                    dataPeliculas: this.state.dataPeliculas.concat(data.results),
+
+                    page: otraPag 
+
+                })
+            }
+            )
+            .catch(error => console.log('El error fue: ' + error))
+    }
+    evitarSubmit(event) {
+    event.preventDefault();
+    this.props.history.push("https://api.themoviedb.org/3/movie/popular?api_key=0185f70c5f71076c61606afd4f75803b" )
+    }
+
+  controlarCambios(event) {
+    this.setState({valor: event.target.value});
+
+
+    this.filtrarPeliculas()
+    }
+
+    filtrarPeliculas(){
+       let datosFiltrados = this.state.datosCopia.filter((pj)=> pj.title.toLowerCase().includes(this.state.valor.toLowerCase()))
+
+       this.setState({
+        datos: datosFiltrados,
+       })
+        
+    }
 
     render() {
         console.log(this.state.dataSeries);
@@ -49,6 +90,7 @@ class Series extends Component {
                     
                     
                     <div className="divEnCartel">
+                        
                     
                         {this.state.dataSeries.map((pelicula, idx) => (
                             <CardSeries key={idx + 1}
@@ -58,7 +100,7 @@ class Series extends Component {
                             overview={pelicula.overview} />
                             
                         ))}
-                        <button>Cargar mas</button>
+                        <button onClick={() => this.cargarMas()}>Cargar mas</button>
 
                     </div>
                   }   
