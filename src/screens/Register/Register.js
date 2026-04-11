@@ -7,7 +7,8 @@ class Register extends Component {
         this.state = {
             valor: '',
             valor2: '',
-            error: ''
+            error: '',
+            arraymail: JSON.parse(localStorage.getItem('mails')) || []
         }
     }
     evitarSubmit(event) {
@@ -35,29 +36,41 @@ class Register extends Component {
         }
         let mailJSON = JSON.stringify(mail)
         let contraseñaJSON = JSON.stringify(contraseña)
-        localStorage.setItem('mailRegister', mailJSON)
-        localStorage.setItem('constraeeñaRegister', contraseñaJSON)
-        this.setState({
-            error: ''
+        let mailExiste = false
+
+        this.state.arraymail.map((cadamail) => {
+            if (mail === cadamail) {
+                mailExiste = true
+            }
         })
+
+        if (mailExiste) {
+            this.setState({
+                error: <p className='nombres'>Este mail ya esta en uso</p>
+            })
+        } else {
+            let nuevoArray = this.state.arraymail.concat(mail)
+            localStorage.setItem('mails', JSON.stringify(nuevoArray))
+            localStorage.setItem('mailRegister', mailJSON)
+            localStorage.setItem('contraseñaRegister', contraseñaJSON)
+            this.setState({ error: '', arraymail: nuevoArray })
+        }
+
         console.log(localStorage)
     }
-    // Aca falte el tema del auth, las cookies y las validaciones
     render() {
-
         return (
             <div className="bodyregister">
-            <form className='formregister' onSubmit={(event) => this.evitarSubmit(event)}>
-                {/* lol, cada vez me confundo yo con mis propias etiquetas de clase y de id, haganme recordar que arregle eso */}
-                <h1 id="titulo">¡Bienvenido a Lumíere Rouge!</h1>
-                <h2 id="h2register" className='nav-link'>Crea una cuenta</h2>
-                <h3 className='h3register'>Ingrese su mail</h3>
-                <input  className='inputregister'required type="email" placeholder="Agregue su mail   " onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
-                <h3 className='h3register'>Ingrese su contraseña</h3>
-                <input className='inputregister' required type="password" placeholder="Agregue su contraseña" onChange={(event) => this.controlarCambios2(event)} value={this.state.valor2} />
-                {this.state.error}
-                <button type="submit">Registrarse</button>
-            </form>
+                <form className='formregister' onSubmit={(event) => this.evitarSubmit(event)}>
+                    <h1 id="titulo">¡Bienvenido a Lumíere Rouge!</h1>
+                    <h2 id="h2register" className='nav-link'>Crea una cuenta</h2>
+                    <h3 className='h3register'>Ingrese su mail</h3>
+                    <input className='inputregister' required type="email" placeholder="Agregue su mail   " onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
+                    <h3 className='h3register'>Ingrese su contraseña</h3>
+                    <input className='inputregister' required type="password" placeholder="Agregue su contraseña" onChange={(event) => this.controlarCambios2(event)} value={this.state.valor2} />
+                    {this.state.error}
+                    <button type="submit">Registrarse</button>
+                </form>
             </div>
         )
     }

@@ -75,11 +75,11 @@ class CardPeli extends Component {
                 {this.state.show === true ? <p>{this.props.overview}</p> : null}
                 {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
                     <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
-                <Link to={`/Detalle/movie/${this.props.id}`} className='botonDetalle'>
+                <Link to={`/Detalle/${this.props.type}/${this.props.id}`} className='botonDetalle'>
                     Detalle
                 </Link>
-                
-                 {this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>}
+
+                {this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>}
             </article>
         )
     }
