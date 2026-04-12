@@ -83,7 +83,8 @@ class Movies extends Component {
                             img={pelicula.poster_path}
                             title={pelicula.title}
                             id={pelicula.id}
-                            overview={pelicula.overview} />
+                            overview={pelicula.overview} 
+                            type="movie" />
                         ))}
                         <button onClick={() => this.cargarMas()}>Cargar mas</button>
                     </div>

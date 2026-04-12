@@ -35,7 +35,8 @@ class MasPopulares extends Component {
                     img = {pelicula.poster_path} 
                     title = {pelicula.title}
                     id = {pelicula.id}
-                    overview= {pelicula.overview}/>
+                    overview= {pelicula.overview}
+                    type="movie" />
                 ))}
             </div>
         )

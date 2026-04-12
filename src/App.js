@@ -9,7 +9,6 @@ import Detalle from "./screens/Detalle/Detalle";
 import Movies from "./componentes/Movies/Movies";
 import Series from "./componentes/Series/Series";
 import Favoritos from './screens/Favoritos/Favoritos';
-import DetalleSeries from './screens/DetalleSeries/DetalleSeries';
 import VerTodasCartel from './componentes/VerTodasCartel/VerTodasCartel';
 import VerTodasPopulares from './componentes/VerTodasPopulares/VerTodasPopulares';
 import CardSeries from './componentes/CardSeries/CardSeries';
@@ -24,8 +23,7 @@ function App() {
         <Route path="/series" component={Series} />
         <Route path="/favoritos" component={Favoritos} />
         <Route path="/SearchResults/:select/:valor" component={SearchResult} />
-        <Route path="/Detalle/movie/:id" component={Detalle} />
-        <Route path="/Detalle/tv/:id" component={DetalleSeries} />
+        <Route path="/Detalle/:type/:id" component={Detalle} />
         <Route path="/VerTodasCartel" component={VerTodasCartel} />
         <Route path="/VerTodasPopulares" component={VerTodasPopulares} />
         <Route path="/CardSeries" component={CardSeries}/>

@@ -11,7 +11,8 @@ class Detalle extends Component {
     }
     componentDidMount() {
         let id = this.props.match.params.id
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=0185f70c5f71076c61606afd4f75803b`)
+        let type = this.props.match.params.type;
+        fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=0185f70c5f71076c61606afd4f75803b`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -23,6 +24,7 @@ class Detalle extends Component {
     }
 
     render() {
+
         console.log(this.state.pelicula)
         if (this.state.cargar === true) {
             return (
@@ -30,27 +32,30 @@ class Detalle extends Component {
             )
         }
         else {
+            let titulo = this.state.pelicula.title || this.state.pelicula.name
+            let fechas = this.state.pelicula.release_date || this.state.pelicula.first_air_date
+            let duracion = this.props.match.params.type === 'movie' ? this.state.pelicula.runtime : null;
             return (
                 <div id="divgeneralDetalle">
-                <article id="articleDetalle" className="peliculaEnCartel">
-                    <div>
-                        <img id="imagenDetalle" className="imagenpelicula" src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}.jpg`} alt={this.state.pelicula.title} />
-                    </div>
-                    <div>
-                        <h2 id="tituloDetalle" className="titulopelicula" > {this.state.pelicula.title} </h2>
-                        <div className="informacionDetalle">
-                        <p className="datoDetalle"><strong>Rating:</strong> {this.state.pelicula.vote_average}/10</p>
-                        <p className="datoDetalle"><strong>Fecha de estreno: </strong> {this.state.pelicula.release_date}</p>
-                        <p className="datoDetalle"><strong>Duracion:</strong> {this.state.pelicula.runtime} minutos</p>
+                    <article id="articleDetalle" className="peliculaEnCartel">
+                        <div>
+                            <img id="imagenDetalle" className="imagenpelicula" src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}.jpg`} alt={titulo} />
                         </div>
-                        <p className="informacionDetalle">{this.state.pelicula.overview}</p>
-                        <div className="mapeoDetalle">
-                        {this.state.pelicula.genres.map((genero, idx) =>
-                            <p id="pMapeadaDetalle"className="datoDetalle" key={genero + idx}>{genero.name}</p>)}
+                        <div>
+                            <h2 id="tituloDetalle" className="titulopelicula" > {titulo} </h2>
+                            <div className="informacionDetalle">
+                                <p className="datoDetalle"><strong>Rating:</strong> {this.state.pelicula.vote_average}/10</p>
+                                <p className="datoDetalle"><strong>Fecha de estreno: </strong> {fechas}</p>
+                                {duracion && <p className="datoDetalle"><strong>Duracion:</strong> {duracion} minutos</p>}
+                            </div>
+                            <p className="informacionDetalle">{this.state.pelicula.overview}</p>
+                            <div className="mapeoDetalle">
+                                {this.state.pelicula.genres.map((genero, idx) =>
+                                    <p id="pMapeadaDetalle" className="datoDetalle" key={genero + idx}>{genero.name}</p>)}
+                            </div>
+                            <button className='fav' onClick={() => this.props.favoritos()}> Agregar a favoritos</button>
                         </div>
-                        <button className='fav' onClick={() => this.props.favoritos()}> Agregar a favoritos</button>
-                    </div>
-                </article>
+                    </article>
                 </div>
             )
         }

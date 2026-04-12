@@ -69,7 +69,8 @@ class Favoritos extends Component {
                                     img={pelicula.poster_path}
                                     title={pelicula.title}
                                     id={pelicula.id}
-                                    overview={pelicula.overview} />
+                                    overview={pelicula.overview}
+                                    type="movie"  />
                             ))}
                         </div>}
 
@@ -88,7 +89,8 @@ class Favoritos extends Component {
                             img={pelicula.poster_path}
                             title={pelicula.name}
                             id={pelicula.id}
-                            overview={pelicula.overview} />
+                            overview={pelicula.overview}
+                            type="tv"  />
                             
                         ))}
                         <button>Cargar mas</button>
