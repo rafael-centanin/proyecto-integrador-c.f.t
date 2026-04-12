@@ -1,5 +1,6 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../CardPeli/CardPeli.css";
 class CardPeli extends Component {
     constructor(props) {
         super(props)
@@ -53,7 +54,7 @@ class CardPeli extends Component {
     sacarFav(id) {
         let clave = localStorage.getItem("favoritosPeliculas")
         let storage = JSON.parse(clave)
-        let storageFiltrado = storage.filter((elemento) => elemento != id)
+        let storageFiltrado = storage.filter((elemento) => elemento !== id)
         let storageString = JSON.stringify(storageFiltrado)
         localStorage.setItem("favoritosPeliculas", storageString)
         this.setState({
@@ -66,16 +67,16 @@ class CardPeli extends Component {
         return (
 
 
-            <article className="peliculaEnCartel">
-                <img className="imagenpelicula"
+            <article className="peliculaMasPopular">
+                <img className="imagenpeliculaMasPop"
                     src={`https://image.tmdb.org/t/p/w342/${this.props.img}.jpg`}
                     alt={this.props.title}
                 />
-                <Link to=""><h2 className="titulopelicula" >{this.props.title} </h2></Link>
+                <Link to=""><h2 className="titulopelicula2" >{this.props.title} </h2></Link>
                 {this.state.show === true ? <p>{this.props.overview}</p> : null}
                 {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
                     <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
-                <Link to={`/Detalle/${this.props.type}/${this.props.id}`} className='botonDetalle'>
+                <Link to={`/Detalle/movie/${this.props.id}`} className='botonDetalle'>
                     Detalle
                 </Link>
 

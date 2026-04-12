@@ -1,15 +1,30 @@
-.barra_busqueda{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #460000;
-    border-radius: 15px;
-    margin: 0 0 30px 0px;
-    padding: 20px;
+.barra_busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #460000;
+  border-radius: 15px;
+  margin: 0 0 30px 0px;
+  padding: 20px;
 }
+
 .busqueda {
   padding: 10px 15px;
   border-radius: 20px;
   width: 100%;
   font-size: 14px;
+}
+
+.selectBusqueda {
+  border-radius: 15px;
+  color: #460000;
+  background-color: #DCA23E;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.option {
+  border-radius: 15px;
+  background-color: #460000;
+  color: #DCA23E;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./MasPopulares.css"
+import "../MasPopulares/MasPopulares.css"
 import CardPeli from "../CardPeli/CardPeli";
 
 
@@ -28,7 +28,7 @@ class MasPopulares extends Component {
     render() {
         return (
 
-            <div className="divEnCartel">
+            <div className="divMasPopular ">
 
                 {this.props.peliculas.map((pelicula, idx) => (
                     <CardPeli key={idx + 1}

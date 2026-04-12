@@ -47,7 +47,7 @@ class Home extends Component {
 
                 <h2 id="h2Main"className="nav-link" >Películas en Cartel</h2>
                 {this.state.enCartel.length === 0 ? <p>Cargando...</p> : <PelisCartel peliculas={this.state.enCartel.slice(0, 8)} />}
-                <button className="BotonVerTodas"> <Link id="BotonVerTodas" to= "/VerTodasCartel">Ver Todas</Link> </button>
+                <button className="BotonVer"> <Link id="BotonVerTodas" to= "/VerTodasCartel">Ver Todas</Link> </button>
             </main>
         );
     }

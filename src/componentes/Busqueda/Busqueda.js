@@ -27,10 +27,10 @@ class Busqueda extends Component {
       <form className="barra_busqueda" onSubmit={(event) => this.evitarSubmit(event)}>
         <input placeholder="Encuentra tu nueva serie o pelicula favorita" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} className="busqueda" />
         <button type="submit">Buscar</button>
-        <select onChange={(event) => this.cambiarSelect(event)}
+        <select onChange={(event) => this.cambiarSelect(event)} className="selectBusqueda"
         >
-          <option value="movie">Películas </option>
-          <option value="tv">Series </option>
+          <option value="movie" className="option">Películas </option>
+          <option value="tv" className="option">Series </option>
         </select>
       </form>
     );

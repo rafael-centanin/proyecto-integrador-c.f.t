@@ -54,3 +54,20 @@ nav {
 #home{
     color: #DCA23E;
 }
+
+@media (max-width: 768px){
+    .ContainerHeader{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Nav-ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+}

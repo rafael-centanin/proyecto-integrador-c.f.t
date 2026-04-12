@@ -1,19 +1,31 @@
-.mainHome{
+.mainHome {
     background-color: #460000;
 }
-#h2Main{
+
+#h2Main {
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 4px;
 }
+
 .botonDetalle {
     color: #460000;
     font-family: "Roboto", sans-serif;
     font-size: 18px;
-    background-color:  #DCA23E;
+    background-color: #DCA23E;
     border-radius: 22px;
     padding: 5px 10px;
 }
-#BotonVerTodas{
-    color:#460000
+
+#BotonVerTodas {
+    color: #460000;
+  
+}
+
+@media (max-wodth: 768px) {
+    .mainHome {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 }
