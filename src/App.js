@@ -12,6 +12,7 @@ import Favoritos from './screens/Favoritos/Favoritos';
 import VerTodasCartel from './componentes/VerTodasCartel/VerTodasCartel';
 import VerTodasPopulares from './componentes/VerTodasPopulares/VerTodasPopulares';
 import CardSeries from './componentes/CardSeries/CardSeries';
+import Login from "./screens/Login/Login";
 function App() {
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
       <Switch>
         <Route path="/" exact={true} component={Home} />
         <Route path="/register" component={Register} />
+        <Route path="/Login" component={Login}/>
         <Route path="/movies" component={Movies} />
         <Route path="/series" component={Series} />
         <Route path="/favoritos" component={Favoritos} />
@@ -27,6 +29,7 @@ function App() {
         <Route path="/VerTodasCartel" component={VerTodasCartel} />
         <Route path="/VerTodasPopulares" component={VerTodasPopulares} />
         <Route path="/CardSeries" component={CardSeries}/>
+
         <Route path="" component={NotFound} />
       </Switch>
       <Footer />

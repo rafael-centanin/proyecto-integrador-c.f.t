@@ -6,10 +6,20 @@ class Detalle extends Component {
         super(props)
         this.state = {
             pelicula: '',
-            cargar: true
+            cargar: true,
+            favoritos: false,
+            ids: this.props.match.params.id
         }
     }
     componentDidMount() {
+        let clave = localStorage.getItem('favoritosPeliculas');
+        if (clave !== null){
+            let storage = JSON.parse(clave)
+            let incluye = storage.includes(this.props.match.params.id);
+            this.setState({
+                favoritos: incluye
+            })
+        }
         let id = this.props.match.params.id
         let type = this.props.match.params.type;
         fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=0185f70c5f71076c61606afd4f75803b`)
@@ -21,6 +31,36 @@ class Detalle extends Component {
                 })
             })
             .catch(error => console.log(error))
+    }
+    agregarFav(ids) {
+        let storage = localStorage.getItem("favoritosPeliculas");
+        if (storage !== null) {
+            let favoritosrecuperados = JSON.parse(storage);
+
+            favoritosrecuperados.push(ids);
+
+            let storageString = JSON.stringify(favoritosrecuperados);
+            localStorage.setItem("favoritosPeliculas", storageString)
+        } else {
+            let variable = [ids];
+            let storageString = JSON.stringify(variable);
+            localStorage.setItem("favoritosPeliculas", storageString)
+        }
+        this.setState({
+            favoritos: true,
+        })
+
+    }
+    sacarFav(ids) {
+        let clave = localStorage.getItem("favoritosPeliculas")
+        let storage = JSON.parse(clave)
+        let storageFiltrado = storage.filter((elemento) => elemento !== ids)
+        let storageString = JSON.stringify(storageFiltrado)
+        localStorage.setItem("favoritosPeliculas", storageString)
+        this.setState({
+            favoritos: false,
+        })
+
     }
 
     render() {
@@ -53,7 +93,8 @@ class Detalle extends Component {
                                 {this.state.pelicula.genres.map((genero, idx) =>
                                     <p id="pMapeadaDetalle" className="datoDetalle" key={genero + idx}>{genero.name}</p>)}
                             </div>
-                            <button className='fav' onClick={() => this.props.favoritos()}> Agregar a favoritos</button>
+                            {/* <button className='fav' onClick={() => this.props.favoritos()}> Agregar a favoritos</button> */}
+                            {this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.state.ids)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.state.ids)}>Agregar a favoritos</button>}
                         </div>
                     </article>
                 </div>
@@ -61,7 +102,4 @@ class Detalle extends Component {
         }
     }
 }
-
-
-
 export default Detalle;

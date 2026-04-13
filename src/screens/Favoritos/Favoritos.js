@@ -57,6 +57,7 @@ class Favoritos extends Component {
     }
 
     render() {
+        console.log(localStorage)
         return (
             <main>
                 <section>

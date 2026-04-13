@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import "./Register.css"
+import "./Login.css"
 import Cookies from 'universal-cookie'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 let cookies = new Cookies()
 
-class Register extends Component {
+class Login extends Component {
     constructor() {
         super();
         this.state = {
@@ -61,7 +61,7 @@ class Register extends Component {
             this.setState({ error: '', arraymail: nuevoArray })
             let usuario = {user: mail, contraseña: contraseña}
             cookies.set("usuario", usuario)
-            this.props.history.push("/Login")
+            this.props.history.push("/Home")
 
 
         }
@@ -86,4 +86,4 @@ class Register extends Component {
     }
 }
 
-export default withRouter(Register);
+export default withRouter(Login);
