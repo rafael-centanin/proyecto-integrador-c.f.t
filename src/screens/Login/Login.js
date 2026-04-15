@@ -72,14 +72,14 @@ class Login extends Component {
         return (
             <div className="bodyregister">
                 <form className='formregister' onSubmit={(event) => this.evitarSubmit(event)}>
-                    <h1 id="titulo">¡Bienvenido a Lumíere Rouge!</h1>
-                    <h2 id="h2register" className='nav-link'>Crea una cuenta</h2>
+                    <h1 id="titulo">¡Bienvenido de vuelta!</h1>
+                    <h2 id="h2register" className='nav-link'>Ingresar a tu cuenta</h2>
                     <h3 className='h3register'>Ingrese su mail</h3>
                     <input className='inputregister' required type="email" placeholder="Agregue su mail   " onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
                     <h3 className='h3register'>Ingrese su contraseña</h3>
                     <input className='inputregister' required type="password" placeholder="Agregue su contraseña" onChange={(event) => this.controlarCambios2(event)} value={this.state.valor2} />
                     {this.state.error}
-                    <button type="submit">Registrarse</button>
+                    <button type="submit">Login</button>
                 </form>
             </div>
         )

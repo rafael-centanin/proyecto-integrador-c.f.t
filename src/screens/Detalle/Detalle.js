@@ -8,12 +8,12 @@ class Detalle extends Component {
             pelicula: '',
             cargar: true,
             favoritos: false,
-            ids: this.props.match.params.id
+            ids: Number(this.props.match.params.id)
         }
     }
     componentDidMount() {
         let clave = localStorage.getItem('favoritosPeliculas');
-        if (clave !== null){
+        if (clave !== null) {
             let storage = JSON.parse(clave)
             let incluye = storage.includes(this.props.match.params.id);
             this.setState({
@@ -34,21 +34,44 @@ class Detalle extends Component {
     }
     agregarFav(ids) {
         let storage = localStorage.getItem("favoritosPeliculas");
-        if (storage !== null) {
-            let favoritosrecuperados = JSON.parse(storage);
+        let storageSeries = localStorage.getItem("favoritosSeries");
+        let type = this.props.match.params.type;
 
-            favoritosrecuperados.push(ids);
 
-            let storageString = JSON.stringify(favoritosrecuperados);
-            localStorage.setItem("favoritosPeliculas", storageString)
+        if (type == 'tv') {
+            if (storageSeries !== null) {
+                let favoritosrecuperados = JSON.parse(storageSeries);
+
+                favoritosrecuperados.push(ids);
+
+                let storageString = JSON.stringify(favoritosrecuperados);
+                localStorage.setItem("favoritosSeries", storageString)
+            } else {
+                let variable = [ids];
+                let storageString = JSON.stringify(variable);
+                localStorage.setItem("favoritosSeries", storageString)
+            }
+            this.setState({
+                favoritos: true,
+            })
         } else {
-            let variable = [ids];
-            let storageString = JSON.stringify(variable);
-            localStorage.setItem("favoritosPeliculas", storageString)
+            if (storage !== null) {
+                let favoritosrecuperados = JSON.parse(storage);
+
+                favoritosrecuperados.push(ids);
+
+                let storageString = JSON.stringify(favoritosrecuperados);
+                localStorage.setItem("favoritosPeliculas", storageString)
+            } else {
+                let variable = [ids];
+                let storageString = JSON.stringify(variable);
+                localStorage.setItem("favoritosPeliculas", storageString)
+            }
+            this.setState({
+                favoritos: true,
+            })
         }
-        this.setState({
-            favoritos: true,
-        })
+
 
     }
     sacarFav(ids) {

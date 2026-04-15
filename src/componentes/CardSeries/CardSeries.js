@@ -72,7 +72,7 @@ class CardSeries extends Component{
                             src={`https://image.tmdb.org/t/p/w342/${this.props.img}.jpg`}
                             alt={this.props.title}
                         />
-                        <Link to=""><h2 className="titulopelicula" >{this.props.title} </h2></Link>
+                        <h2 className="titulopelicula" >{this.props.title}</h2>
                         {this.state.show === true ? <p>{this.props.overview}</p> : null}
                         {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
                             <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
