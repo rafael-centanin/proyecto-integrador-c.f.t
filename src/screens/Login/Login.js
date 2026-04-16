@@ -38,7 +38,7 @@ class Login extends Component {
         let usuarioValido = usuarios.filter((user) => user.mail === mail);
 
         if (usuarioValido.length > 0 && usuarioValido[0].password === contraseña) {
-            cookies.set("user-auth.cookie", mail)
+            cookies.set("user-auth-cookie", mail)
             this.props.history.push("/")
         } else {
             this.setState({
