@@ -19,7 +19,18 @@
 
 #BotonVerTodas {
     color: #460000;
-  
+}
+#vermasHome{
+    margin-top: 10px;
+    margin-right: 30px;
+    padding: 10px 20px;
+    width: auto;
+    height: fit-content;
+}
+.divisionhome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 @media (max-wodth: 768px) {

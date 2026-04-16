@@ -1,6 +1,7 @@
 .divMasPopular {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 a {
     text-decoration: none;

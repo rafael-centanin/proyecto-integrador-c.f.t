@@ -41,13 +41,17 @@ class Home extends Component {
         return (
             <main className="mainHome">
                 <Busqueda />
-                <h2 id="h2Main"className="nav-link">Más Populares</h2>
+                <div className="divisionhome">
+                    <h2 id="h2Main" className="nav-link">Más Populares</h2>
+                    <button id="vermasHome"> <Link id="BotonVerTodas" to="/VerTodasPopulares">Ver Todas</Link> </button>
+                </div>
                 {this.state.masPopulares.length === 0 ? <p>Cargando...</p> : <MasPopulares peliculas={this.state.masPopulares.slice(0, 8)} type="movie" />}
-                <button> <Link id="BotonVerTodas" to= "/VerTodasPopulares">Ver Todas</Link> </button>
-
-                <h2 id="h2Main"className="nav-link" >Películas en Cartel</h2>
+                <div className="divisionhome">
+                    <h2 id="h2Main" className="nav-link" >Películas en Cartel</h2>
+                    <button id="vermasHome" className="BotonVer"> <Link id="BotonVerTodas" to="/VerTodasCartel">Ver Todas</Link> </button>
+                </div>
                 {this.state.enCartel.length === 0 ? <p>Cargando...</p> : <PelisCartel peliculas={this.state.enCartel.slice(0, 8)} type="movie" />}
-                <button className="BotonVer"> <Link id="BotonVerTodas" to= "/VerTodasCartel">Ver Todas</Link> </button>
+
             </main>
         );
     }
