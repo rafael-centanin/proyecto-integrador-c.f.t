@@ -1,16 +1,18 @@
-import React, {Component} from "react" 
+import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import Cookies from 'universal-cookie'
 
-class CardSeries extends Component{
-    constructor(props){
+let cookies = new Cookies()
+class CardSeries extends Component {
+    constructor(props) {
         super(props)
-            this.state = {
+        this.state = {
             show: false,
             hide: true
 
         }
     }
-        componentDidMount() {
+    componentDidMount() {
         let clave = localStorage.getItem("favoritosSeries");
 
         if (clave !== null) {
@@ -64,23 +66,26 @@ class CardSeries extends Component{
 
     }
     render() {
+        let usuario = cookies.get("user-auth-cookie")
         return (
 
-                
-                    <article  className="peliculaEnCartel">
-                        <img className="imagenpelicula"
-                            src={`https://image.tmdb.org/t/p/w342/${this.props.img}.jpg`}
-                            alt={this.props.title}
-                        />
-                        <h2 className="titulopelicula" >{this.props.title}</h2>
-                        {this.state.show === true ? <p>{this.props.overview}</p> : null}
-                        {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
-                            <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
-                        <Link to={`/Detalle/tv/${this.props.id}`} className='botonDetalle'>
-                            Detalle
-                        </Link>
-                        {this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>}
-                    </article>
+
+            <article className="peliculaEnCartel">
+                <img className="imagenpelicula"
+                    src={`https://image.tmdb.org/t/p/w342/${this.props.img}.jpg`}
+                    alt={this.props.title}
+                />
+                <h2 className="titulopelicula" >{this.props.title}</h2>
+                {this.state.show === true ? <p>{this.props.overview}</p> : null}
+                {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
+                    <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
+                <Link to={`/Detalle/tv/${this.props.id}`} className='botonDetalle'>
+                    Detalle
+                </Link>
+                {usuario != null ? (
+                    this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>
+                ) : null}
+            </article>
         )
     }
 }

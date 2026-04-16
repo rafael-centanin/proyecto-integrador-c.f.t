@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../CardPeli/CardPeli.css";
+import Cookies from 'universal-cookie'
+
+let cookies = new Cookies()
 class CardPeli extends Component {
     constructor(props) {
         super(props)
@@ -64,6 +67,7 @@ class CardPeli extends Component {
     }
 
     render() {
+        let usuario = cookies.get("user-auth-cookie")
         return (
 
 
@@ -79,8 +83,9 @@ class CardPeli extends Component {
                 <Link to={`/Detalle/${this.props.type}/${this.props.id}`} className='botonDetalle'>
                     Detalle
                 </Link>
-
-                {this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>}
+                {usuario != null ? (
+                    this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button>: <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>
+                ) : null}
             </article>
         )
     }

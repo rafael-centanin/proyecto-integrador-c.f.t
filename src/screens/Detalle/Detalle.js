@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import './Detalle.css'
+import Cookies from 'universal-cookie'
 
+let cookies = new Cookies()
 class Detalle extends Component {
     constructor(props) {
         super(props)
@@ -95,6 +97,7 @@ class Detalle extends Component {
             )
         }
         else {
+            let usuario = cookies.get("user-auth-cookie")
             let titulo = this.state.pelicula.title || this.state.pelicula.name
             let fechas = this.state.pelicula.release_date || this.state.pelicula.first_air_date
             let duracion = this.props.match.params.type === 'movie' ? this.state.pelicula.runtime : null;
@@ -116,8 +119,9 @@ class Detalle extends Component {
                                 {this.state.pelicula.genres.map((genero, idx) =>
                                     <p id="pMapeadaDetalle" className="datoDetalle" key={genero + idx}>{genero.name}</p>)}
                             </div>
-                            {/* <button className='fav' onClick={() => this.props.favoritos()}> Agregar a favoritos</button> */}
-                            {this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.state.ids)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.state.ids)}>Agregar a favoritos</button>}
+                            {usuario != null ? (
+                                this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>
+                            ) : null}
                         </div>
                     </article>
                 </div>

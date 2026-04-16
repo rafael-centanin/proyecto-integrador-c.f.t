@@ -9,12 +9,12 @@ let cookies = new Cookies()
 class Header extends Component {
 
     logout(){
-        cookies.remove("user-auth-cookies")
+        cookies.remove("user-auth-cookie")
         this.props.history.push("/login")
     }
     
     render() {
-        let usuario= cookies.get("user-auth-cookies")
+        let usuario= cookies.get("user-auth-cookie")
         return (
             <div className='ContainerHeader'>
                 <div id="contenedordetituloeimagen">
@@ -32,21 +32,26 @@ class Header extends Component {
                         <li className="nav-item">
                             <Link className="nav-link" to="/series">Series</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/favoritos">Favoritas</Link>
-                        </li>
-                        <li className="nav-item ml-auto">
-                            <Link className="nav-link" to="/register">Register
-
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/Login">Login</Link>
-                        </li>
-                        {usuario != null ?   <h2> No estas logueado</h2>:
-                        <button onClick={() => this.logout()}>
-                            Logout
-                        </button> }
+                        {usuario != null ? (
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/favoritos">Favoritas</Link>
+                            </li>
+                        ): null}
+                        {usuario == null? (
+                            <>
+                                <li className="nav-item ml-auto">
+                                    <Link className="nav-link" to="/register">Register</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/Login">Login</Link>
+                                </li>
+                            </>
+                        ): null}
+                        {usuario != null? (
+                            <li className="nav-item">
+                                <button id="logout" className='nav-link' onClick={() => this.logout()}>Logout</button>
+                            </li>
+                        ): null}
                     
                     </ul>
                 </nav>

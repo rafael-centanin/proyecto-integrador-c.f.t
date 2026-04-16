@@ -54,7 +54,9 @@ nav {
 #home{
     color: #DCA23E;
 }
-
+#logout{
+    background-color: #460000;
+}
 @media (max-width: 768px){
     .ContainerHeader{
         display: flex;
