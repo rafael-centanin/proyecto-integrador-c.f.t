@@ -55,7 +55,7 @@ class CardSeries extends Component{
     sacarFav(id) {
         let clave = localStorage.getItem("favoritosSeries")
         let storage = JSON.parse(clave)
-        let storageFiltrado = storage.filter((elemento) => elemento != id)
+        let storageFiltrado = storage.filter((elemento) => elemento !== id)
         let storageString = JSON.stringify(storageFiltrado)
         localStorage.setItem("favoritosSeries", storageString)
         this.setState({

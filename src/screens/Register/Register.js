@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import "./Register.css"
 import Cookies from 'universal-cookie'
-import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 let cookies = new Cookies()
 
@@ -18,7 +17,7 @@ class Register extends Component {
     evitarSubmit(event) {
         event.preventDefault();
         this.mandarSubmit();
-        
+
     }
     controlarCambios(event) {
         this.setState({
@@ -33,6 +32,8 @@ class Register extends Component {
     mandarSubmit() {
         let mail = this.state.valor
         let contraseña = this.state.valor2
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+
         if (contraseña.length < 6) {
             this.setState({
                 error: <p className='nombres'>La contraseña debe tener al menos 6 caracteres</p>
@@ -49,7 +50,7 @@ class Register extends Component {
             }
         })
 
-        if (mailExiste ) {
+        if (mailExiste) {
             this.setState({
                 error: <p className='nombres'>Este mail ya esta en uso</p>
             })
@@ -59,10 +60,13 @@ class Register extends Component {
             localStorage.setItem('mailRegister', mailJSON)
             localStorage.setItem('contraseñaRegister', contraseñaJSON)
             this.setState({ error: '', arraymail: nuevoArray })
-            let usuario = {user: mail, contraseña: contraseña}
-            cookies.set("usuario", usuario)
-            this.props.history.push("/Login")
 
+            let usuarioNew = { mail: mail, password: contraseña }
+            usuarios.push(usuarioNew);
+        
+            localStorage.setItem("usuarios", JSON.stringify(usuarios))
+            cookies.set("user-auth-cookie", mail)
+            this.props.history.push("/Login")
 
         }
 

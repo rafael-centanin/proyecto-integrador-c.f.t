@@ -38,7 +38,7 @@ class Detalle extends Component {
         let type = this.props.match.params.type;
 
 
-        if (type == 'tv') {
+        if (type === 'tv') {
             if (storageSeries !== null) {
                 let favoritosrecuperados = JSON.parse(storageSeries);
 
