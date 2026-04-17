@@ -20,7 +20,9 @@
 
 .imagenpeliculaMasPop {
     border-radius: 22px;
-        box-shadow: rgba(17, 12, 46, 0.4) 0px 8px 20px;
+    box-shadow: rgba(17, 12, 46, 0.4) 0px 8px 20px;
+    display: block;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -28,6 +30,14 @@
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
-        width: 300px;
+        
+        /* width: 300px; */
+        width: 100%;
     }
+    .botonDetalle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }

@@ -56,3 +56,10 @@ button{
     margin: 5px 2px 2px 2px;
     color:#470101
 }
+@media (max-wodth: 768px) {
+    .bodyregister {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}

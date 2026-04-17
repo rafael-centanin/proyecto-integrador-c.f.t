@@ -25,3 +25,11 @@
     margin: 0;
     width: 100%;
 }
+@media (max-width: 768px){
+    .divEnCartel{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 300px;
+    }
+}

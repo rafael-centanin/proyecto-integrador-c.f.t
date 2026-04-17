@@ -21,3 +21,11 @@
 #h3NotFound{
     font-size: 50px;
 }
+
+@media (max-wodth: 768px) {
+    .mainHome {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
