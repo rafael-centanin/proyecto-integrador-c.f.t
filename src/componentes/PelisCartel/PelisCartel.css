@@ -13,6 +13,7 @@
     width: 100%;
     flex-direction: row;
         align-items: flex-start;
+        background-color: #460000;
 }
 .titulopelicula{
     color:#460000;

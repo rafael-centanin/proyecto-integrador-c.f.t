@@ -66,7 +66,7 @@ class Register extends Component {
         
             localStorage.setItem("usuarios", JSON.stringify(usuarios))
             cookies.set("user-auth-cookie", mail)
-            this.props.history.push("/Login")
+            this.props.history.push("/Home")
 
         }
 

@@ -1,24 +1,30 @@
 .peliculaMasPopular {
-    background: #fff;
+    background-color: #F1E3C3;
     font-size: 20px;
     padding: 10px 15px 10px 9px;
     margin: 0 10px 20px 10px;
     width: 22%;
     border-radius: 22px;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15);
     min-height: 420px;
+    justify-content: space-between;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
 }
+
 .titulopelicula2 {
     color: #460000;
     font-family: "Roboto", sans-serif;
     font-size: normal;
-}
-.imagenpeliculaMasPop{
-    border-radius: 22px;
+
+    min-height: 48px;
 }
 
-@media (max-width: 768px){
-    .peliculaMasPopular{
+.imagenpeliculaMasPop {
+    border-radius: 22px;
+        box-shadow: rgba(17, 12, 46, 0.4) 0px 8px 20px;
+}
+
+@media (max-width: 768px) {
+    .peliculaMasPopular {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;

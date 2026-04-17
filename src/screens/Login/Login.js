@@ -42,7 +42,7 @@ class Login extends Component {
             this.props.history.push("/")
         } else {
             this.setState({
-                error: "credenciales incorrectas"
+                error: "Credenciales incorrectas"
             })
 
             console.log(localStorage)
@@ -58,7 +58,7 @@ class Login extends Component {
                         <input className='inputregister' required type="email" placeholder="Agregue su mail   " onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
                         <h3 className='h3register'>Ingrese su contraseña</h3>
                         <input className='inputregister' required type="password" placeholder="Agregue su contraseña" onChange={(event) => this.controlarCambios2(event)} value={this.state.valor2} />
-                        {this.state.error}
+                        <p className="nombres">{this.state.error}</p>
                         <button type="submit">Login</button>
                     </form>
                 </div>

@@ -34,8 +34,8 @@ class Favoritos extends Component {
         }
 
     }
-    seriesFav(){
-                let storage = localStorage.getItem("favoritosSeries");
+    seriesFav() {
+        let storage = localStorage.getItem("favoritosSeries");
         if (storage !== null) {
             let favoritos = JSON.parse(storage);
             let peliculasRecuperadas = [];
@@ -59,48 +59,37 @@ class Favoritos extends Component {
     render() {
         console.log(localStorage)
         return (
-            <main>
+            <main className="divEnCartel">
                 <section>
-                    <h2> Películas Favoritas</h2>
-                    {this.state.peliculasFav.length === 0 ? <p>No tenés peliculas favoritas</p> :
+                    <h2 id="h2Main" class="nav-link"> Películas Favoritas</h2>
+                    {this.state.peliculasFav.length === 0 ? <p className="PFavoritos"  id="copy">No tenés peliculas favoritas</p> :
                         <div className="divEnCartel">
-
                             {this.state.peliculasFav.map((pelicula, idx) => (
                                 <CardPeli key={idx + 1}
                                     img={pelicula.poster_path}
                                     title={pelicula.title}
                                     id={pelicula.id}
                                     overview={pelicula.overview}
-                                    type="movie"  />
+                                    type="movie" />
                             ))}
                         </div>}
-
-
                 </section>
                 <section>
-                    <h2> Series Favoritas</h2>
-                            
-                 {this.state.dataSeries.length===0 ? <p>No tenés series favoritas</p>: 
-                    
-                    
-                    <div className="divEnCartel">
-                    
-                        {this.state.dataSeries.map((pelicula, idx) => (
-                            <CardSeries key={idx + 1}
-                            img={pelicula.poster_path}
-                            title={pelicula.name}
-                            id={pelicula.id}
-                            overview={pelicula.overview}
-                            type="tv"  />
-                            
-                        ))}
-                        <button>Cargar mas</button>
-
-                    </div>}
-
+                    <h2 id="h2Main" class="nav-link"> Series Favoritas</h2>
+                    {this.state.dataSeries.length === 0 ? <p className="PFavoritos"id="copy">No tenés series favoritas</p> :
+                        <div className="divEnCartel">
+                            {this.state.dataSeries.map((pelicula, idx) => (
+                                <CardSeries key={idx + 1}
+                                    img={pelicula.poster_path}
+                                    title={pelicula.name}
+                                    id={pelicula.id}
+                                    overview={pelicula.overview}
+                                    type="tv" />
+                            ))}
+                            <button>Cargar mas</button>
+                        </div>}
                 </section>
             </main>
-
         );
     }
 

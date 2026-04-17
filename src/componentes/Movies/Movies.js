@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardPeli from "../CardPeli/CardPeli";
+import './Movies.css'
 class Movies extends Component {
     constructor(props) {
         super(props)
@@ -7,7 +8,7 @@ class Movies extends Component {
             dataPeliculas: [],
             datos: [],
             datosCopia: [],
-            page: 1, 
+            page: 1,
             valor: ""
         }
     }
@@ -18,13 +19,13 @@ class Movies extends Component {
                 this.setState({
                     dataPeliculas: data.results,
                     datos: data.results,
-                    datosCopia:data.results
+                    datosCopia: data.results
                 })
 
             })
             .catch(error => console.log(error));
     }
-    cargarMas(){
+    cargarMas() {
         let otraPag = this.state.page + 1
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=0185f70c5f71076c61606afd4f75803b&page=${otraPag}`)
             .then(response => response.json())
@@ -35,7 +36,7 @@ class Movies extends Component {
                     dataPeliculas: this.state.dataPeliculas.concat(data.results),
                     datos: this.state.dataPeliculas.concat(data.results),
                     datosCopia: this.state.dataPeliculas.concat(data.results),
-                    page: otraPag 
+                    page: otraPag
 
                 })
             }
@@ -43,54 +44,55 @@ class Movies extends Component {
             .catch(error => console.log('El error fue: ' + error))
     }
     evitarSubmit(event) {
-    event.preventDefault();
+        event.preventDefault();
 
     }
 
-  controlarCambios(event) {
-    this.setState({valor: event.target.value});
+    controlarCambios(event) {
+        this.setState({ valor: event.target.value });
 
 
-    this.filtrarPeliculas()
+        this.filtrarPeliculas()
     }
 
-    filtrarPeliculas(){
-       let datosFiltrados = this.state.datosCopia.filter((pj)=> pj.title.toLowerCase().includes(this.state.valor.toLowerCase()))
+    filtrarPeliculas() {
+        let datosFiltrados = this.state.datosCopia.filter((pj) => pj.title.toLowerCase().includes(this.state.valor.toLowerCase()))
 
-       this.setState({
-        datos: datosFiltrados,
-       })
-        
+        this.setState({
+            datos: datosFiltrados,
+        })
+
     }
 
     render() {
         console.log(this.state.dataPeliculas);
         return (
 
-            <div>
+            <div className="fondoMovie">
 
-                 {this.state.dataPeliculas.length===0 ? <p>Cargando...</p>: 
-                    
-                    
+                {this.state.dataPeliculas.length === 0 ? <p>Cargando...</p> :
                     <div className="divEnCartel">
-                        <form className="barra_busqueda" onSubmit={(event)=>this.evitarSubmit(event)}>
-                        <label>Buscar</label>
-                        <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} className="busqueda"/>
-                        </form>
-                    
+                        <div id="formMovie" className="formMovie">
+                            <form id="formId" className="barra_busqueda" onSubmit={(event) => this.evitarSubmit(event)}>
+                                <input placeholder="Encuentra tu pelicula favorita" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} className="busqueda" id="busquedaid" />
+                                <label className="labelMovie">Buscar</label>
+                            </form>
+                        </div>
                         {this.state.datos.map((pelicula, idx) => (
                             <CardPeli key={idx + 1}
-                            img={pelicula.poster_path}
-                            title={pelicula.title}
-                            id={pelicula.id}
-                            overview={pelicula.overview} 
-                            type="movie" />
+                                img={pelicula.poster_path}
+                                title={pelicula.title}
+                                id={pelicula.id}
+                                overview={pelicula.overview}
+                                type="movie" />
                         ))}
                         <button onClick={() => this.cargarMas()}>Cargar mas</button>
                     </div>
-                  }   
-                  </div>
-        )}}
+                }
+            </div>
+        )
+    }
+}
 
 
 export default Movies;

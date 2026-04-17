@@ -29,7 +29,7 @@ class SearchResult extends Component {
 
     render() {
         return (
-            <section className="sectionSearchResults">
+            <section className="divEnCartel">
                 {this.state.resultados.length === 0 ? (<p>No hay resultados</p>) : (this.state.resultados.map((pelicula, idx) =>
 
                 (this.props.match.params.select === 'tv' ?

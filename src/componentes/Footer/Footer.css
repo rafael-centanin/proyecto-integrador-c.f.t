@@ -13,7 +13,7 @@
 }
 .nombres{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
     width: 100%;
     font-family: "Roboto", sans-serif;
@@ -21,7 +21,7 @@
     font-style: normal;
     color: #DCA23E; ;
 }
-#copy{
+.copy{
     font-size: large;
     font-family: 'Playfair Display', serif;
     color:antiquewhite
@@ -30,4 +30,10 @@ footer{
     background-color: #460000;
     position: relative;
     width: 100%;
+}
+#colorr{
+    color: #DCA23E;
+}
+#Benjamin{
+    margin-right: 25px;
 }

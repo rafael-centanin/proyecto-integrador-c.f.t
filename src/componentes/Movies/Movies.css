@@ -1,0 +1,27 @@
+.fondoMovie{
+    background-color: #460000;
+}
+.formMovie{
+    display: flex;
+    width: 100vw;
+    justify-content: start;
+}
+#busquedaid{
+    width: 100%;
+
+}
+
+.labelMovie{
+        border-radius: 22px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #DCA23E;
+    font-family: "Roboto", sans-serif;
+    font-size: large;
+    margin: 5px 2px 2px 2px;
+    color: #470101;
+}
+#formId{
+    margin: 0;
+    width: 100%;
+}
