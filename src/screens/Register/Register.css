@@ -56,10 +56,18 @@ button{
     margin: 5px 2px 2px 2px;
     color:#470101
 }
-@media (max-wodth: 768px) {
+@media (max-width: 768px) {
     .bodyregister {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        align-self: center;
+        align-items: center;
     }
+    .formregister {
+    margin: 50px;
+    padding: 30px;
+    border-radius: 22px;
+    background-color: #470101;
+}
 }

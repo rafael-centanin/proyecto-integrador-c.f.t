@@ -29,5 +29,6 @@
         flex-direction: column;
         justify-content: center;
         width: 300px;
+        padding-right: 50px;
     }
 }

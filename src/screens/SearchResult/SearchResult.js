@@ -29,6 +29,7 @@ class SearchResult extends Component {
 
     render() {
         return (
+            <div className="fondoMovie">
             <section className="divEnCartel">
                 {this.state.resultados.length === 0 ? (<p>No hay resultados</p>) : (this.state.resultados.map((pelicula, idx) =>
 
@@ -50,6 +51,7 @@ class SearchResult extends Component {
 
                 ))}
             </section>
+            </div>
         )
     };
 }

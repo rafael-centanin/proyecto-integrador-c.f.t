@@ -49,7 +49,7 @@ box-shadow: rgba(17, 12, 46, 0.4) 0px 8px 20px;
     margin-right: 20px;
 }
 
-@media (max-wodth: 768px) {
+@media (max-width: 768px) {
     .divgeneralDetalle {
         display: flex;
         flex-direction: column;

@@ -59,6 +59,7 @@ class Favoritos extends Component {
     render() {
         console.log(localStorage)
         return (
+            <div className="fondoMovie">
             <main className="divEnCartel">
                 <section>
                     <h2 id="h2Main" class="nav-link"> Películas Favoritas</h2>
@@ -90,6 +91,7 @@ class Favoritos extends Component {
                         </div>}
                 </section>
             </main>
+            </div>
         );
     }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardSeries from "../CardSeries/CardSeries";
+import './Series.css'
 class Series extends Component {
     constructor(props) {
         super(props)
@@ -70,7 +71,7 @@ class Series extends Component {
     render() {
         console.log(this.state.dataSeries);
         return (
-            <div>
+            <div className="fondoMovie">
 
                 {this.state.dataSeries.length === 0 ? <p>Cargando...</p> :
 

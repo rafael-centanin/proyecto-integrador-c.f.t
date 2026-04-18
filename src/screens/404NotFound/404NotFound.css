@@ -22,7 +22,7 @@
     font-size: 50px;
 }
 
-@media (max-wodth: 768px) {
+@media (max-width: 768px) {
     .mainHome {
         display: flex;
         flex-direction: column;
