@@ -8,9 +8,9 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            valor: '',
-            valor2: '',
-            error: '',
+            valor: "",
+            valor2:"",
+            error: "",
 
         }
     }

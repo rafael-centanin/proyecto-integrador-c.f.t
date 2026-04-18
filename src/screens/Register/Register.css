@@ -56,7 +56,7 @@ button{
     margin: 5px 2px 2px 2px;
     color:#470101
 }
-@media (max-width: 768px) {
+@media (max-width: 420px) {
     .bodyregister {
         display: flex;
         flex-direction: column;

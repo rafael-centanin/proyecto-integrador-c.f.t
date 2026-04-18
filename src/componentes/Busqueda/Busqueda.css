@@ -29,9 +29,10 @@
   background-color: #460000;
   color: #DCA23E;
 }
-@media (max-width: 768px){
+@media (max-width: 420px){
   .barra_busqueda{
     display: flex;
+    box-sizing: border-box;
     /* flex-direction: column; */
     align-items: center;
   }

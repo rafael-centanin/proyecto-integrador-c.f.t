@@ -6,7 +6,7 @@ function NotFound(){
         <div id="divNotFound" className="mainHome">
             <h1 className="tituloNotFound">404</h1>
             <h3 id='h3NotFound' className='h3register'>Not Found</h3>
-            <p id="pNotFound" className='nombres'>Esta pagina no existe, intente con otra url</p>
+            <p id="pNotFound">Esta pagina no existe, intente con otra url</p>
         </div>
     )
 }

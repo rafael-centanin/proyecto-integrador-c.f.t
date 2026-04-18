@@ -23,7 +23,7 @@
 .imagenpelicula{
     border-radius: 22px;
 }
-@media (max-width: 768px){
+@media (max-width: 420px){
     .divEnCartel{
         display: flex;
         flex-direction: column;

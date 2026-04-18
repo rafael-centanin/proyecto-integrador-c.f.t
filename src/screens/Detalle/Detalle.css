@@ -49,10 +49,27 @@ box-shadow: rgba(17, 12, 46, 0.4) 0px 8px 20px;
     margin-right: 20px;
 }
 
-@media (max-width: 768px) {
-    .divgeneralDetalle {
+@media (max-width: 420px) {
+    #divgeneralDetalle {
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+    #articleDetalle {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+    #imagenDetalle {
+        width: 90%;
+    }
+    .informacionDetalle {
+        display: flex;
+        flex-direction: column; 
+    }
+    .mapeoDetalle {
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
 }

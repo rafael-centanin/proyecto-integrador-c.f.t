@@ -33,7 +33,7 @@
     justify-content: space-between;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 420px) {
     .mainHome {
         display: flex;
         flex-direction: column;

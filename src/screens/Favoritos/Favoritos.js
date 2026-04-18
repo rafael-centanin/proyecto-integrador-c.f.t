@@ -60,7 +60,7 @@ class Favoritos extends Component {
         console.log(localStorage)
         return (
             <div className="fondoMovie">
-            <main className="divEnCartel">
+            <main className="mainHome">
                 <section>
                     <h2 id="h2Main" class="nav-link"> Películas Favoritas</h2>
                     {this.state.peliculasFav.length === 0 ? <p className="PFavoritos"  id="copy">No tenés peliculas favoritas</p> :
@@ -76,7 +76,7 @@ class Favoritos extends Component {
                         </div>}
                 </section>
                 <section>
-                    <h2 id="h2Main" class="nav-link"> Series Favoritas</h2>
+                    <h2 id="h2Main" className="nav-link"> Series Favoritas</h2>
                     {this.state.dataSeries.length === 0 ? <p className="PFavoritos"id="copy">No tenés series favoritas</p> :
                         <div className="divEnCartel">
                             {this.state.dataSeries.map((pelicula, idx) => (

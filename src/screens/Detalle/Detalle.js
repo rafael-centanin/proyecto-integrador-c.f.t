@@ -17,7 +17,7 @@ class Detalle extends Component {
         let clave = localStorage.getItem('favoritosPeliculas');
         if (clave !== null) {
             let storage = JSON.parse(clave)
-            let incluye = storage.includes(this.props.match.params.id);
+            let incluye = storage.includes(Number(this.props.match.params.id));
             this.setState({
                 favoritos: incluye
             })
@@ -120,7 +120,7 @@ class Detalle extends Component {
                                     <p id="pMapeadaDetalle" className="datoDetalle" key={genero + idx}>{genero.name}</p>)}
                             </div>
                             {usuario != null ? (
-                                this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>
+                                this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.state.ids)}>Sacar de favoritos</button> : <button onClick={() => this.agregarFav(this.state.ids)}>Agregar a favoritos</button>
                             ) : null}
                         </div>
                     </article>

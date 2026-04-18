@@ -10,6 +10,11 @@
 #pNotFound{
     margin: 50px 0 100px 0;
     font-size: 20px;
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #DCA23E; ;
 }
 #divNotFound{
     width: 100%;
@@ -22,10 +27,11 @@
     font-size: 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 420px) {
     .mainHome {
         display: flex;
+        box-sizing: border-box;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 }
