@@ -14,7 +14,16 @@ class Detalle extends Component {
         }
     }
     componentDidMount() {
-        let clave = localStorage.getItem('favoritosPeliculas');
+        let id = Number(this.props.match.params.id);
+        let type = this.props.match.params.type;
+        let clave = "";
+
+        if (type === "tv") {
+            clave = localStorage.getItem("favoritosSeries")
+        } else {
+            clave = localStorage.getItem('favoritosPeliculas');
+        }
+
         if (clave !== null) {
             let storage = JSON.parse(clave)
             let incluye = storage.includes(Number(this.props.match.params.id));
@@ -22,8 +31,6 @@ class Detalle extends Component {
                 favoritos: incluye
             })
         }
-        let id = this.props.match.params.id
-        let type = this.props.match.params.type;
         fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=0185f70c5f71076c61606afd4f75803b`)
             .then(response => response.json())
             .then(data => {
@@ -33,6 +40,7 @@ class Detalle extends Component {
                 })
             })
             .catch(error => console.log(error))
+
     }
     agregarFav(ids) {
         let storage = localStorage.getItem("favoritosPeliculas");
@@ -77,15 +85,27 @@ class Detalle extends Component {
 
     }
     sacarFav(ids) {
-        let clave = localStorage.getItem("favoritosPeliculas")
+        let type = this.props.match.params.type;
+        let clave = "";
+
+        if (type === "tv") {
+            clave = localStorage.getItem("favoritosSeries")
+        } else {
+            clave = localStorage.getItem('favoritosPeliculas');
+        }
+
         let storage = JSON.parse(clave)
         let storageFiltrado = storage.filter((elemento) => elemento !== ids)
         let storageString = JSON.stringify(storageFiltrado)
-        localStorage.setItem("favoritosPeliculas", storageString)
+
+        if (type === 'tv') {
+            localStorage.setItem("favoritosSeries", storageString)
+        } else {
+            localStorage.setItem("favoritosPeliculas", storageString)
+        }
         this.setState({
             favoritos: false,
         })
-
     }
 
     render() {
