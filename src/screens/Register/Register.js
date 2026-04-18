@@ -36,7 +36,7 @@ class Register extends Component {
 
         if (contraseña.length < 6) {
             this.setState({
-                error: <p className='nombres'>La contraseña debe tener al menos 6 caracteres</p>
+                error: <p className='errores'>La contraseña debe tener al menos 6 caracteres</p>
             })
             return
         }
@@ -52,7 +52,7 @@ class Register extends Component {
 
         if (mailExiste) {
             this.setState({
-                error: <p className='nombres'>Este mail ya esta en uso</p>
+                error: <p className='errores'>Este mail ya esta en uso</p>
             })
         } else {
             let nuevoArray = this.state.arraymail.concat(mail)

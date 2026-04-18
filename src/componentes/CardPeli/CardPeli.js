@@ -77,7 +77,7 @@ class CardPeli extends Component {
                     alt={this.props.title}
                 />
                 <Link to=""><h2 className="titulopelicula2" >{this.props.title} </h2></Link>
-                {this.state.show === true ? <p>{this.props.overview}</p> : null}
+                {this.state.show === true ? <p className="Descripcion">{this.props.overview}</p> : null}
                 {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
                     <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
                 <Link to={`/Detalle/${this.props.type}/${this.props.id}`} className='botonDetalle'>

@@ -20,7 +20,9 @@
     font-optical-sizing: auto;
     font-style: normal;
     color: #DCA23E; ;
+    text-align: center;
 }
+
 .copy{
     font-size: large;
     font-family: 'Playfair Display', serif;

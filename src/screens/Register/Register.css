@@ -46,6 +46,18 @@ input::placeholder {
     color: #aaa;
     font-size: 14px;
 }
+.errores{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #DCA23E; ;
+    text-align: center;
+}
+
 button{
     border-radius: 22px;
     padding: 5px 10px;
