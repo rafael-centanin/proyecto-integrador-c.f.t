@@ -21,6 +21,9 @@ box-shadow: rgba(17, 12, 46, 0.4) 0px 8px 20px;
 }
 .PFavoritos{
     margin-left: 25px;
+    margin-bottom: 0px;
+    color: #DCA23E;
+    font-size: 20px;
 }
 #tituloDetalle {
     font-family: 'Playfair Display', serif;
