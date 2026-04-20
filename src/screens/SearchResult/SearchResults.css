@@ -1,7 +1,12 @@
-.sectionSearchResults{
-    display: flex;
-    flex-wrap: wrap;
-}
+
 @media (max-width: 420px) {
-    
+    .divEnCartel {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        
+    }
 }
