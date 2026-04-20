@@ -1,5 +1,14 @@
 
 @media (max-width: 420px) {
+        .fondoMovie{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        
+    }
     .divEnCartel {
         display: flex;
         flex-direction: column;
