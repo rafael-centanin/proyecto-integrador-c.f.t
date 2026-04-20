@@ -7,22 +7,9 @@ class PelisCartel extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            enCartel: []
+
 
         }
-    }
-    componentDidMount() {
-        fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0185f70c5f71076c61606afd4f75803b")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    enCartel: data.results
-                })
-            })
-            .catch(error => console.log(error));
-    }
-    favoritos(){
-        
     }
 
     render() {

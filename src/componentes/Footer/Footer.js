@@ -7,7 +7,7 @@ function Footer() {
         <footer className="nombresFoot">
             <div className="nombres">
                 <Link id="logo" to="/"> <img id="logo" src="/images/logo.png" alt="Logo" /></Link>
-                <p id="colorr" className="copy">Copyright ® Dashboard 2022</p>
+                <p id="colorr" className="copy">Copyright ® Dashboard 2026</p>
                 <p className="copy">Rafael Centanin</p>
                 <p className="copy">Abril Farinaccia</p>
                 <p id="Benjamin"className="copy">Benjamin Torres</p>
