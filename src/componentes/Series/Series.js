@@ -6,8 +6,6 @@ class Series extends Component {
         super(props)
         this.state = {
             dataSeries: [],
-            datos: [],
-            datosCopia: [],
             page: 1,
             valor: ""
 
@@ -19,8 +17,6 @@ class Series extends Component {
             .then(data => {
                 this.setState({
                     dataSeries: data.results,
-                    datos: data.results,
-                    datosCopia: data.results
                 })
 
             })
@@ -37,8 +33,6 @@ class Series extends Component {
 
                 this.setState({
                     dataSeries: this.state.dataSeries.concat(data.results),
-                    datos: this.state.dataSeries.concat(data.results),
-                    datosCopia: this.state.dataSeries.concat(data.results),
                     page: otraPag
 
                 })
@@ -54,22 +48,15 @@ class Series extends Component {
 
     controlarCambios(event) {
         this.setState({ valor: event.target.value });
-
-
-        this.filtrarPeliculas()
     }
 
-    filtrarPeliculas() {
-        let datosFiltrados = this.state.datosCopia.filter((pj) => pj.name.toLowerCase().includes(this.state.valor.toLowerCase()))
+     
 
-        this.setState({
-            datos: datosFiltrados,
-        })
 
-    }
 
     render() {
         console.log(this.state.dataSeries);
+           let seriesAMostrar = this.state.dataSeries.filter((pj) => pj.name.toLowerCase().includes(this.state.valor.toLowerCase()))
         return (
             <div className="fondoMovie">
 
@@ -84,7 +71,7 @@ class Series extends Component {
                         </form>
                         </div>
 
-                        {this.state.datos.map((pelicula, idx) => (
+                        {seriesAMostrar.map((pelicula, idx) => (
                             <CardSeries key={idx + 1}
                                 img={pelicula.poster_path}
                                 title={pelicula.name}

@@ -6,8 +6,6 @@ class Movies extends Component {
         super(props)
         this.state = {
             dataPeliculas: [],
-            datos: [],
-            datosCopia: [],
             page: 1,
             valor: ""
         }
@@ -18,8 +16,6 @@ class Movies extends Component {
             .then(data => {
                 this.setState({
                     dataPeliculas: data.results,
-                    datos: data.results,
-                    datosCopia: data.results
                 })
 
             })
@@ -34,8 +30,6 @@ class Movies extends Component {
 
                 this.setState({
                     dataPeliculas: this.state.dataPeliculas.concat(data.results),
-                    datos: this.state.dataPeliculas.concat(data.results),
-                    datosCopia: this.state.dataPeliculas.concat(data.results),
                     page: otraPag
 
                 })
@@ -50,22 +44,12 @@ class Movies extends Component {
 
     controlarCambios(event) {
         this.setState({ valor: event.target.value });
-
-
-        this.filtrarPeliculas()
-    }
-
-    filtrarPeliculas() {
-        let datosFiltrados = this.state.datosCopia.filter((pj) => pj.title.toLowerCase().includes(this.state.valor.toLowerCase()))
-
-        this.setState({
-            datos: datosFiltrados,
-        })
-
     }
 
     render() {
         console.log(this.state.dataPeliculas);
+        let peliculasMostrar = this.state.dataPeliculas.filter((pj) => pj.title.toLowerCase().includes(this.state.valor.toLowerCase()))
+
         return (
 
             <div className="fondoMovie">
@@ -78,7 +62,7 @@ class Movies extends Component {
                                 <label className="labelMovie">Buscar</label>
                             </form>
                         </div>
-                        {this.state.datos.map((pelicula, idx) => (
+                        {peliculasMostrar.map((pelicula, idx) => (
                             <CardPeli key={idx + 1}
                                 img={pelicula.poster_path}
                                 title={pelicula.title}
