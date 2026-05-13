@@ -2,22 +2,15 @@
 import "./PelisCartel.css"
 import React, { Component } from "react";
 import CardPeli from "../CardPeli/CardPeli";
-
-class PelisCartel extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+import { useState, useEffect } from "react";
+function PelisCartel (props) {
 
 
-        }
-    }
-
-    render() {
         return (
 
             <div className="divEnCartel">
 
-                {this.props.peliculas.map((pelicula, idx) => (
+                {props.peliculas.map((pelicula, idx) => (
                     <CardPeli key={idx + 1}
                     img = {pelicula.poster_path} 
                     title = {pelicula.title}
@@ -28,5 +21,5 @@ class PelisCartel extends Component {
             </div>
         )
     }
-}
+
 export default PelisCartel;

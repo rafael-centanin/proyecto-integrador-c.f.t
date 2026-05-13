@@ -2,18 +2,19 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import Cookies from 'universal-cookie'
+import  { useState, useEffect } from "react";
 import './Header.css'
 
 let cookies = new Cookies()
 
-class Header extends Component {
+function Header (props){
 
-    logout(){
+    function logout(){
         cookies.remove("user-auth-cookie")
-        this.props.history.push("/login")
+        props.history.push("/login")
     }
     
-    render() {
+    // render() {
         let usuario= cookies.get("user-auth-cookie")
         return (
             <div className='ContainerHeader'>
@@ -49,7 +50,7 @@ class Header extends Component {
                         ): null}
                         {usuario != null? (
                             <li className="nav-item">
-                                <button id="logout" className='nav-link' onClick={() => this.logout()}>Logout</button>
+                                <button id="logout" className='nav-link' onClick={() => logout()}>Logout</button>
                             </li>
                         ): null}
                     
@@ -59,6 +60,6 @@ class Header extends Component {
 
         )
     }
-}
+
 
 export default withRouter (Header)
