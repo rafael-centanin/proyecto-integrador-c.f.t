@@ -1,60 +1,50 @@
-import { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Busqueda from "../../componentes/Busqueda/Busqueda";
 import MasPopulares from "../../componentes/MasPopulares/MasPopulares";
 import PelisCartel from "../../componentes/PelisCartel/PelisCartel";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            masPopulares: [],
-            enCartel: []
+function Home(props) {
+    const [masPopulares, setMasPopulares] = useState([])
+    const [enCartel, setenCartel] = useState([])
 
-        }
-    }
-    componentDidMount() {
-        this.pelisEnCartel();
+
+    useEffect(() => {
+        pelisEnCartel();
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=0185f70c5f71076c61606afd4f75803b")
             .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    masPopulares: data.results
-                })
-            })
+            .then(data =>  setMasPopulares(data.results))
             .catch(error => console.log(error));
-    }
+    })
 
-    pelisEnCartel() {
+    function pelisEnCartel() {
         fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0185f70c5f71076c61606afd4f75803b")
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    enCartel: data.results
-                })
+                setenCartel(data.results)
             })
             .catch(error => console.log(error));
     }
 
-    render() {
-        return (
-            <main className="mainHome">
+        return(
+            <main className = "mainHome" >
                 <Busqueda />
                 <div className="divisionhome">
                     <h2 id="h2Main" className="nav-link">Más Populares</h2>
                     <button id="vermasHome"> <Link id="BotonVerTodas" to="/VerTodasPopulares">Ver Todas</Link> </button>
                 </div>
-                {this.state.masPopulares.length === 0 ? <p>Cargando...</p> : <MasPopulares peliculas={this.state.masPopulares.slice(0, 8)} type="movie" />}
-                <div className="divisionhome">
+                { masPopulares.length === 0 ? <p>Cargando...</p> : <MasPopulares peliculas={masPopulares.slice(0, 8)} type="movie" />
+    }
+    < div className = "divisionhome" >
                     <h2 id="h2Main" className="nav-link" >Películas en Cartel</h2>
                     <button id="vermasHome" className="BotonVer"> <Link id="BotonVerTodas" to="/VerTodasCartel">Ver Todas</Link> </button>
-                </div>
-                {this.state.enCartel.length === 0 ? <p>Cargando...</p> : <PelisCartel peliculas={this.state.enCartel.slice(0, 8)} type="movie" />}
+                </div >
+        { enCartel.length === 0 ? <p>Cargando...</p> : <PelisCartel peliculas={enCartel.slice(0, 8)} type="movie" /> }
 
-            </main>
+            </main >
         );
-    }
 }
+
 
 export default Home;

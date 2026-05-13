@@ -1,41 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../CardPeli/CardPeli.css";
 import Cookies from 'universal-cookie'
 
 let cookies = new Cookies()
-class CardPeli extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            show: false,
-            hide: true,
-            favoritos: false
-        }
-    }
-    componentDidMount() {
+function CardPeli (props) {
+        const [show, setShow] = useState(false)
+        const [favoritos, setFavoritos] = useState(false)
+            
+        
+    
+    useEffect(()=> {
         let clave = localStorage.getItem("favoritosPeliculas");
 
         if (clave !== null) {
             let storage = JSON.parse(clave)
-            let incluye = storage.includes(this.props.id);
-            this.setState({
-                favoritos: incluye
-            })
+            let incluye = storage.includes(props.id);
+            setFavoritos(incluye)
         }
-    }
-    show() {
-        this.setState({
-            show: true,
-        })
+    },[])
+
+    function shows() {
+        setShow(true)
     }
 
-    hide() {
-        this.setState({
-            show: false,
-        })
+    function hides() {
+        setShow(false)
     }
-    agregarFav(id) {
+    function agregarFav(id) {
         let storage = localStorage.getItem("favoritosPeliculas");
         if (storage !== null) {
             let favoritosrecuperados = JSON.parse(storage);
@@ -49,46 +42,40 @@ class CardPeli extends Component {
             let storageString = JSON.stringify(variable);
             localStorage.setItem("favoritosPeliculas", storageString)
         }
-        this.setState({
-            favoritos: true,
-        })
+        setFavoritos(true)
 
     }
-    sacarFav(id) {
+    function sacarFav(id) {
         let clave = localStorage.getItem("favoritosPeliculas")
         let storage = JSON.parse(clave)
         let storageFiltrado = storage.filter((elemento) => elemento !== id)
         let storageString = JSON.stringify(storageFiltrado)
         localStorage.setItem("favoritosPeliculas", storageString)
-        this.setState({
-            favoritos: false,
-        })
+        setFavoritos(false)
 
     }
 
-    render() {
         let usuario = cookies.get("user-auth-cookie")
         return (
 
 
             <article className="peliculaMasPopular">
                 <img className="imagenpeliculaMasPop"
-                    src={`https://image.tmdb.org/t/p/w342/${this.props.img}.jpg`}
-                    alt={this.props.title}
+                    src={`https://image.tmdb.org/t/p/w342/${props.img}.jpg`}
+                    alt={props.title}
                 />
-                <h2 className="titulopelicula2" >{this.props.title} </h2>
-                {this.state.show === true ? <p className="Descripcion">{this.props.overview}</p> : null}
-                {this.state.show === true ? <button className='more' onClick={() => this.hide()}>Ver Menos</button> :
-                    <button className='more' onClick={() => this.show()}> Ver Descripcion</button>}
-                <Link to={`/Detalle/${this.props.type}/${this.props.id}`} className='botonDetalle'>
+                <h2 className="titulopelicula2" >{props.title} </h2>
+                {show === true ? <p className="Descripcion">{props.overview}</p> : null}
+                {show === true ? <button className='more' onClick={() => hides()}>Ver Menos</button> :
+                    <button className='more' onClick={() =>shows()}> Ver Descripcion</button>}
+                <Link to={`/Detalle/${props.type}/${props.id}`} className='botonDetalle'>
                     Detalle
                 </Link>
                 {usuario != null ? (
-                    this.state.favoritos === true ? <button onClick={() => this.sacarFav(this.props.id)}>Sacar de favoritos</button>: <button onClick={() => this.agregarFav(this.props.id)}>Agregar a favoritos</button>
+                    favoritos === true ? <button onClick={() => sacarFav(props.id)}>Sacar de favoritos</button>: <button onClick={() =>agregarFav(props.id)}>Agregar a favoritos</button>
                 ) : null}
             </article>
         )
     }
-}
 
 export default CardPeli;
