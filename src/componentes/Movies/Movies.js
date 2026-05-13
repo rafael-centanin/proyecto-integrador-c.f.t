@@ -16,7 +16,7 @@ function Movies() {
     },[])
 
     function cargarMas() {
-        let otraPag = setPage(page + 1)
+        let otraPag = page + 1
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=0185f70c5f71076c61606afd4f75803b&page=${otraPag}`)
             .then(response => response.json())
             .then(data => {
