@@ -10,7 +10,7 @@ function PelisCartel (props) {
 
             <div className="divEnCartel">
 
-                {this.props.peliculas.map((pelicula, idx) => (
+                {props.peliculas.map((pelicula, idx) => (
                     <CardPeli key={idx + 1}
                     img = {pelicula.poster_path} 
                     title = {pelicula.title}
