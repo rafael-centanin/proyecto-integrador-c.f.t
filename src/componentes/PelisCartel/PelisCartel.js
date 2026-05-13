@@ -2,17 +2,10 @@
 import "./PelisCartel.css"
 import React, { Component } from "react";
 import CardPeli from "../CardPeli/CardPeli";
-
-class PelisCartel extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+import { useState, useEffect } from "react";
+function PelisCartel (props) {
 
 
-        }
-    }
-
-    render() {
         return (
 
             <div className="divEnCartel">
@@ -28,5 +21,5 @@ class PelisCartel extends Component {
             </div>
         )
     }
-}
+
 export default PelisCartel;
