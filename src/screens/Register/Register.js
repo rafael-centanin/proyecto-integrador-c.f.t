@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./Register.css"
 import Cookies from 'universal-cookie'
-import { withRouter } from 'react-router-dom'
 let cookies = new Cookies()
 
 function Register(props) {
@@ -23,13 +22,14 @@ function Register(props) {
         setValor2(event.target.value)
     }
 
-    function mandarSubmit(props) {
+    function mandarSubmit() {
         let mail = valor
         let contraseña = valor2
         let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 
         if (contraseña.length < 6) {
             setError(<p className='errores'>La contraseña debe tener al menos 6 caracteres</p>)
+            return
         }
 
         let mailJSON = JSON.stringify(mail)
@@ -78,4 +78,4 @@ function Register(props) {
     )
 }
 
-export default withRouter(Register);
+export default Register;
