@@ -36,8 +36,8 @@ function Series() {
     function controlarCambios(event) {
         setValor(event.target.value)
     }
-        console.log(this.state.dataSeries);
-        let seriesAMostrar = dataSeries.filter((pj) => pj.name.toLowerCase().includes(this.state.valor.toLowerCase()))
+        console.log(dataSeries);
+        let seriesAMostrar = dataSeries.filter((pj) => pj.name.toLowerCase().includes(valor.toLowerCase()))
         return (
             <div className="fondoMovie">
 
